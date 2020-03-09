@@ -23,11 +23,11 @@
             </objects>
             <point key="canvasLocation" x="568.1159420289855" y="-449.33035714285711"/>
         </scene>
-        <!--Timer-->
+        <!--Navigation Controller-->
         <scene sceneID="oo9-D3-mfW">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="V9Q-wu-AiZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Timer" id="Lxp-Ei-Q4J"/>
+                    <tabBarItem key="tabBarItem" title="" image="Icon-App-40x40-4" selectedImage="Icon-App-40x40-4" id="Lxp-Ei-Q4J"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pnq-9N-fDR">
@@ -44,4 +44,7 @@
             <point key="canvasLocation" x="-342.02898550724638" y="-449.33035714285711"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Icon-App-40x40-4" width="40" height="40"/>
+    </resources>
 </document>

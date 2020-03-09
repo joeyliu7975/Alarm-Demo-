@@ -23,11 +23,11 @@
             </objects>
             <point key="canvasLocation" x="568.1159420289855" y="-449.33035714285711"/>
         </scene>
-        <!--Stopwatch-->
+        <!--Navigation Controller-->
         <scene sceneID="onY-Jl-y6F">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="N2v-Qr-VNN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Stopwatch" id="vgc-OG-YCS"/>
+                    <tabBarItem key="tabBarItem" title="" image="Icon-App-40x40-3" selectedImage="Icon-App-40x40-3" id="vgc-OG-YCS"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GJj-bS-72C">
@@ -44,4 +44,7 @@
             <point key="canvasLocation" x="-342.02898550724638" y="-449.33035714285711"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Icon-App-40x40-3" width="40" height="40"/>
+    </resources>
 </document>

@@ -23,11 +23,11 @@
             </objects>
             <point key="canvasLocation" x="568.1159420289855" y="-449.33035714285711"/>
         </scene>
-        <!--Bedtime-->
+        <!--Navigation Controller-->
         <scene sceneID="prV-gM-OrT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cLf-eO-BTI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Bedtime" id="6Ac-nS-mDd"/>
+                    <tabBarItem key="tabBarItem" title="" image="Icon-App-40x40" selectedImage="Icon-App-40x40" id="6Ac-nS-mDd"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bOF-s8-FXN">
@@ -44,4 +44,7 @@
             <point key="canvasLocation" x="-342.02898550724638" y="-449.33035714285711"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Icon-App-40x40" width="40" height="40"/>
+    </resources>
 </document>

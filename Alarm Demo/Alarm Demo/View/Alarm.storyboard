@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Alarm Controller-->
+        <!--Alarm-->
         <scene sceneID="w6u-Xs-qwm">
             <objects>
                 <viewController id="gun-dJ-BUH" customClass="AlarmController" customModule="Alarm_Demo" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,19 +16,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iDS-cK-1uy">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alarm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Gc-9O-bI2">
-                                        <rect key="frame" x="10" y="0.0" width="404" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="uEq-rd-5CS"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dfK-lO-yOS">
-                                        <rect key="frame" x="0.0" y="58" width="414" height="667"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="dataSource" destination="gun-dJ-BUH" id="OT4-0O-jxV"/>
@@ -39,12 +30,9 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="dfK-lO-yOS" firstAttribute="leading" secondItem="iDS-cK-1uy" secondAttribute="leading" id="EHt-T1-wAs"/>
-                                    <constraint firstItem="dfK-lO-yOS" firstAttribute="top" secondItem="4Gc-9O-bI2" secondAttribute="bottom" constant="8" symbolic="YES" id="X6y-wB-lTm"/>
-                                    <constraint firstItem="4Gc-9O-bI2" firstAttribute="leading" secondItem="iDS-cK-1uy" secondAttribute="leading" constant="10" id="aik-lM-SpP"/>
                                     <constraint firstAttribute="trailing" secondItem="dfK-lO-yOS" secondAttribute="trailing" id="bVq-vc-gem"/>
+                                    <constraint firstItem="dfK-lO-yOS" firstAttribute="top" secondItem="iDS-cK-1uy" secondAttribute="top" id="fa5-bg-e8S"/>
                                     <constraint firstAttribute="bottom" secondItem="dfK-lO-yOS" secondAttribute="bottom" id="lJc-9C-avO"/>
-                                    <constraint firstItem="4Gc-9O-bI2" firstAttribute="top" secondItem="iDS-cK-1uy" secondAttribute="top" id="qXN-n5-g6g"/>
-                                    <constraint firstAttribute="trailing" secondItem="4Gc-9O-bI2" secondAttribute="trailing" id="tbS-yt-sXF"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -52,13 +40,13 @@
                         <constraints>
                             <constraint firstItem="Wgq-nb-MYh" firstAttribute="bottom" secondItem="iDS-cK-1uy" secondAttribute="bottom" id="E2F-V1-0N4"/>
                             <constraint firstItem="iDS-cK-1uy" firstAttribute="leading" secondItem="Tzl-qr-AkB" secondAttribute="leading" id="KT5-h5-fPk"/>
-                            <constraint firstItem="iDS-cK-1uy" firstAttribute="top" secondItem="Wgq-nb-MYh" secondAttribute="top" id="V8z-6t-TXf"/>
+                            <constraint firstItem="iDS-cK-1uy" firstAttribute="top" secondItem="Wgq-nb-MYh" secondAttribute="top" constant="-140" id="V8z-6t-TXf"/>
                             <constraint firstAttribute="trailing" secondItem="iDS-cK-1uy" secondAttribute="trailing" id="f15-OS-7Yl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Wgq-nb-MYh"/>
                     </view>
-                    <navigationItem key="navigationItem" id="JyH-V3-HFz">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="05A-5L-CeH">
+                    <navigationItem key="navigationItem" title="Alarm" largeTitleDisplayMode="always" id="JyH-V3-HFz">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" style="done" id="05A-5L-CeH">
                             <color key="tintColor" red="0.96862745100000003" green="0.50196078430000002" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ayh-FA-F9i">
@@ -74,7 +62,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pch-dI-fwJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="568.1159420289855" y="-449.33035714285711"/>
+            <point key="canvasLocation" x="566.66666666666674" y="-449.33035714285711"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="5ag-oC-hsZ">
@@ -92,17 +80,25 @@
             </objects>
             <point key="canvasLocation" x="1557" y="-449"/>
         </scene>
-        <!--Alarm-->
+        <!--Navigation Controller-->
         <scene sceneID="Dst-Iw-x5i">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zIm-GD-W69" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Alarm" id="oLX-DG-HmE"/>
+                    <tabBarItem key="tabBarItem" title="" image="Icon-App-40x40-1" selectedImage="Icon-App-40x40-1" id="oLX-DG-HmE"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fU2-CB-6DV">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="fU2-CB-6DV">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -114,4 +110,7 @@
             <point key="canvasLocation" x="-342.02898550724638" y="-449.33035714285711"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Icon-App-40x40-1" width="40" height="40"/>
+    </resources>
 </document>

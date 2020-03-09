@@ -17,6 +17,7 @@ class TableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -25,4 +26,14 @@ class TableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func switchAction(_ sender: UISwitch) {
+        switch sender.isOn {
+        case true:
+            timeLabel.textColor = UIColor.white
+            alarmLabel.textColor = UIColor.white
+        default:
+            timeLabel.textColor = UIColor.gray
+            alarmLabel.textColor = UIColor.gray
+        }
+    }
 }

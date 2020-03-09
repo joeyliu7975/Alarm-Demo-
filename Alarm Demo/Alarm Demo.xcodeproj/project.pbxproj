@@ -87,9 +87,9 @@
 				714B88062415E71D0035EDAA /* World Clock.storyboard */,
 				714B88082415E72D0035EDAA /* Alarm.storyboard */,
 				714B880A2415E73C0035EDAA /* Stopwatch.storyboard */,
-				719D75AD241606470054C99E /* Alarm tableView Cell */,
 				719D75AB2415EAE10054C99E /* Bedtime.storyboard */,
 				714B880C2415E7450035EDAA /* Timer.storyboard */,
+				719D75AD241606470054C99E /* Alarm tableView Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
