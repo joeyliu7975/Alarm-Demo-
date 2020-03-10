@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7116C58124173529003738F9 /* AddAlarmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7116C58024173529003738F9 /* AddAlarmController.swift */; };
 		712515F7241780D6003C5365 /* TimePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712515F6241780D6003C5365 /* TimePickerManager.swift */; };
+		712515FA24178882003C5365 /* AddAlarm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 712515F924178882003C5365 /* AddAlarm.storyboard */; };
 		714B87EE2415E18D0035EDAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714B87ED2415E18D0035EDAA /* AppDelegate.swift */; };
 		714B87F02415E18D0035EDAA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714B87EF2415E18D0035EDAA /* SceneDelegate.swift */; };
 		714B87F22415E18D0035EDAA /* AlarmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714B87F12415E18D0035EDAA /* AlarmController.swift */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		7116C58024173529003738F9 /* AddAlarmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmController.swift; sourceTree = "<group>"; };
 		712515F6241780D6003C5365 /* TimePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerManager.swift; sourceTree = "<group>"; };
+		712515F924178882003C5365 /* AddAlarm.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddAlarm.storyboard; sourceTree = "<group>"; };
 		714B87EA2415E18D0035EDAA /* Alarm Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Alarm Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		714B87ED2415E18D0035EDAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		714B87EF2415E18D0035EDAA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +57,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		712515F824178869003C5365 /* Alarm */ = {
+			isa = PBXGroup;
+			children = (
+				714B88082415E72D0035EDAA /* Alarm.storyboard */,
+				712515F924178882003C5365 /* AddAlarm.storyboard */,
+			);
+			path = Alarm;
+			sourceTree = "<group>";
+		};
 		714B87E12415E18D0035EDAA = {
 			isa = PBXGroup;
 			children = (
@@ -89,7 +100,7 @@
 			children = (
 				714B87F32415E18D0035EDAA /* Main.storyboard */,
 				714B88062415E71D0035EDAA /* World Clock.storyboard */,
-				714B88082415E72D0035EDAA /* Alarm.storyboard */,
+				712515F824178869003C5365 /* Alarm */,
 				714B880A2415E73C0035EDAA /* Stopwatch.storyboard */,
 				719D75AB2415EAE10054C99E /* Bedtime.storyboard */,
 				714B880C2415E7450035EDAA /* Timer.storyboard */,
@@ -202,6 +213,7 @@
 			files = (
 				714B87FA2415E18F0035EDAA /* LaunchScreen.storyboard in Resources */,
 				714B88072415E71D0035EDAA /* World Clock.storyboard in Resources */,
+				712515FA24178882003C5365 /* AddAlarm.storyboard in Resources */,
 				714B87F72415E18F0035EDAA /* Assets.xcassets in Resources */,
 				719D75AC2415EAE10054C99E /* Bedtime.storyboard in Resources */,
 				719D75B1241609A20054C99E /* TableViewCell.xib in Resources */,

@@ -12,8 +12,11 @@ class AlarmController: UIViewController{
     
     @IBOutlet weak var alarmTableView: UITableView!
     @IBOutlet weak var leftBarbuttonItem: UIBarButtonItem!
+    @IBAction func cancel(_ unwindSegue: UIStoryboardSegue){
+    }
     
-    var mockDataLists:[String] = ["10", "15", "20", "25"]
+    var onEditingMode: Bool = false
+    var mockDataLists:[String] = ["10:00AM", "3:00PM", "5:00PM", "9:00PM"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,13 +37,12 @@ class AlarmController: UIViewController{
     }
     
     @IBAction func editButton(_ sender: UIBarButtonItem){
-           alarmTableView.isEditing.toggle()
-           
-           sender.title = (alarmTableView.isEditing == true ? "Done" : "Edit")
-       }
-    
-    @IBAction func cancel(_ unwindSegue: UIStoryboardSegue){
+        alarmTableView.isEditing.toggle()
+        onEditingMode = alarmTableView.isEditing
+        sender.title = (alarmTableView.isEditing == true ? "Done" : "Edit")
+        alarmTableView.reloadData()
     }
+    
 }
 
 extension AlarmController: UITableViewDataSource, UITableViewDelegate {
@@ -57,7 +59,7 @@ extension AlarmController: UITableViewDataSource, UITableViewDelegate {
     
     // Editing Mode trailing EditingStyle
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -73,7 +75,12 @@ extension AlarmController: UITableViewDataSource, UITableViewDelegate {
         
         cell.timeLabel.text = self.mockDataLists[indexPath.row]
         
+        switch onEditingMode {
+        case true:
+            cell.switchLabel.isHidden = true
+        case false:
+            cell.switchLabel.isHidden = false
+        }
         return cell
     }
-
 }
