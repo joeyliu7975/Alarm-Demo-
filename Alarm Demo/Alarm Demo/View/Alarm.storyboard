@@ -40,33 +40,79 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ayh-FA-F9i">
                             <color key="tintColor" red="0.96862745100000003" green="0.50196078430000002" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="7jq-wa-yJS" kind="presentation" id="rwL-y1-E4P"/>
+                                <segue destination="7jq-wa-yJS" kind="modal" id="1n1-aT-68m"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="alarmTableView" destination="dfK-lO-yOS" id="xWg-Ur-bue"/>
+                        <outlet property="leftBarbuttonItem" destination="05A-5L-CeH" id="fdp-FC-Bt2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pch-dI-fwJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="566.66666666666674" y="-449.33035714285711"/>
+            <point key="canvasLocation" x="633" y="-449"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Alarm-->
         <scene sceneID="5ag-oC-hsZ">
             <objects>
-                <viewController id="7jq-wa-yJS" sceneMemberID="viewController">
+                <viewController id="7jq-wa-yJS" customClass="AddAlarmController" customModule="Alarm_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JuM-lT-V3W">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tzc-ma-itQ">
+                                <rect key="frame" x="0.0" y="55" width="414" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="605499483.731637">
+                                    <!--2020-03-10 02:18:03 +0000-->
+                                </date>
+                            </datePicker>
+                            <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="Doa-Od-oTD">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem title="Add Alarm" id="6xA-v5-uiw">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="HfF-ep-pru">
+                                            <color key="tintColor" red="0.96862745100000003" green="0.50196078430000002" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Flc-4l-JYi">
+                                            <color key="tintColor" red="0.96862745100000003" green="0.50196078430000002" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FaJ-Ru-rh6">
+                                <rect key="frame" x="0.0" y="279" width="414" height="200"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="Y0c-au-kHz"/>
+                                </constraints>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Doa-Od-oTD" firstAttribute="trailing" secondItem="l1Y-tq-X0l" secondAttribute="trailing" id="08I-YV-mak"/>
+                            <constraint firstItem="Doa-Od-oTD" firstAttribute="top" secondItem="l1Y-tq-X0l" secondAttribute="top" id="7VC-sz-CE0"/>
+                            <constraint firstItem="Tzc-ma-itQ" firstAttribute="trailing" secondItem="Doa-Od-oTD" secondAttribute="trailing" id="ELZ-CD-814"/>
+                            <constraint firstItem="Doa-Od-oTD" firstAttribute="leading" secondItem="l1Y-tq-X0l" secondAttribute="leading" id="Gg1-xX-DCj"/>
+                            <constraint firstItem="l1Y-tq-X0l" firstAttribute="trailing" secondItem="FaJ-Ru-rh6" secondAttribute="trailing" id="Tod-kC-SQi"/>
+                            <constraint firstItem="FaJ-Ru-rh6" firstAttribute="leading" secondItem="l1Y-tq-X0l" secondAttribute="leading" id="TwP-ea-S8O"/>
+                            <constraint firstItem="Tzc-ma-itQ" firstAttribute="top" secondItem="l1Y-tq-X0l" secondAttribute="top" constant="55" id="c8o-Zs-aMv"/>
+                            <constraint firstItem="Tzc-ma-itQ" firstAttribute="leading" secondItem="Doa-Od-oTD" secondAttribute="leading" id="giN-cX-wDW"/>
+                            <constraint firstItem="FaJ-Ru-rh6" firstAttribute="top" secondItem="Tzc-ma-itQ" secondAttribute="bottom" constant="8" symbolic="YES" id="zgC-cE-sVb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="l1Y-tq-X0l"/>
                     </view>
-                    <navigationItem key="navigationItem" id="evQ-om-MO2"/>
+                    <navigationItem key="navigationItem" title="Add Alarm" largeTitleDisplayMode="never" id="evQ-om-MO2">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="8e9-hj-W09"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="alarmTimePicker" destination="Tzc-ma-itQ" id="3fm-lX-Wq2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lfy-R6-R9C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1557" y="-449"/>
+            <point key="canvasLocation" x="1556.521739130435" y="-449.33035714285711"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Dst-Iw-x5i">
@@ -80,6 +126,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
