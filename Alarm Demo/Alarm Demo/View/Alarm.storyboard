@@ -15,33 +15,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iDS-cK-1uy">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
-                                <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dfK-lO-yOS">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="gun-dJ-BUH" id="OT4-0O-jxV"/>
-                                            <outlet property="delegate" destination="gun-dJ-BUH" id="Ev7-Ai-Ygq"/>
-                                        </connections>
-                                    </tableView>
-                                </subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dfK-lO-yOS">
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="dfK-lO-yOS" firstAttribute="leading" secondItem="iDS-cK-1uy" secondAttribute="leading" id="EHt-T1-wAs"/>
-                                    <constraint firstAttribute="trailing" secondItem="dfK-lO-yOS" secondAttribute="trailing" id="bVq-vc-gem"/>
-                                    <constraint firstItem="dfK-lO-yOS" firstAttribute="top" secondItem="iDS-cK-1uy" secondAttribute="top" id="fa5-bg-e8S"/>
-                                    <constraint firstAttribute="bottom" secondItem="dfK-lO-yOS" secondAttribute="bottom" id="lJc-9C-avO"/>
-                                </constraints>
-                            </view>
+                                <connections>
+                                    <outlet property="dataSource" destination="gun-dJ-BUH" id="OT4-0O-jxV"/>
+                                    <outlet property="delegate" destination="gun-dJ-BUH" id="Ev7-Ai-Ygq"/>
+                                </connections>
+                            </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Wgq-nb-MYh" firstAttribute="bottom" secondItem="iDS-cK-1uy" secondAttribute="bottom" id="E2F-V1-0N4"/>
-                            <constraint firstItem="iDS-cK-1uy" firstAttribute="leading" secondItem="Tzl-qr-AkB" secondAttribute="leading" id="KT5-h5-fPk"/>
-                            <constraint firstItem="iDS-cK-1uy" firstAttribute="top" secondItem="Wgq-nb-MYh" secondAttribute="top" constant="-140" id="V8z-6t-TXf"/>
-                            <constraint firstAttribute="trailing" secondItem="iDS-cK-1uy" secondAttribute="trailing" id="f15-OS-7Yl"/>
+                            <constraint firstItem="Wgq-nb-MYh" firstAttribute="bottom" secondItem="dfK-lO-yOS" secondAttribute="bottom" id="BUz-47-ycu"/>
+                            <constraint firstItem="dfK-lO-yOS" firstAttribute="trailing" secondItem="Tzl-qr-AkB" secondAttribute="trailing" id="YKS-fw-17o"/>
+                            <constraint firstItem="dfK-lO-yOS" firstAttribute="leading" secondItem="Tzl-qr-AkB" secondAttribute="leading" id="fPl-CA-ALu"/>
+                            <constraint firstItem="dfK-lO-yOS" firstAttribute="top" secondItem="Wgq-nb-MYh" secondAttribute="top" id="xBL-3A-adI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Wgq-nb-MYh"/>
                     </view>
@@ -92,7 +80,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>

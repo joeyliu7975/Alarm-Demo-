@@ -23,7 +23,7 @@ class AlarmController: UIViewController{
         tableViewSeparator()
         
     }
-    
+        
     func nibRegister() {
         let nib = UINib(nibName: "TableViewCell", bundle: nil)
         alarmTableView.register(nib, forCellReuseIdentifier: "TableViewCell")
