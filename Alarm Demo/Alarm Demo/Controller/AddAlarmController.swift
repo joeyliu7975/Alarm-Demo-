@@ -20,6 +20,5 @@ class AddAlarmController: UIViewController {
         alarmTimePicker.backgroundColor = .black
         alarmTimePicker.setValue(UIColor.white, forKey: "textColor")
     }
-
     
 }

@@ -36,11 +36,14 @@
                     <navigationItem key="navigationItem" title="Alarm" largeTitleDisplayMode="always" id="JyH-V3-HFz">
                         <barButtonItem key="leftBarButtonItem" title="Edit" style="done" id="05A-5L-CeH">
                             <color key="tintColor" red="0.96862745100000003" green="0.50196078430000002" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="editButton:" destination="gun-dJ-BUH" id="VuP-aN-aGy"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ayh-FA-F9i">
                             <color key="tintColor" red="0.96862745100000003" green="0.50196078430000002" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="7jq-wa-yJS" kind="modal" id="1n1-aT-68m"/>
+                                <segue destination="7jq-wa-yJS" kind="modal" identifier="goToAddAlarm" id="1n1-aT-68m"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -74,6 +77,9 @@
                                     <navigationItem title="Add Alarm" id="6xA-v5-uiw">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="HfF-ep-pru">
                                             <color key="tintColor" red="0.96862745100000003" green="0.50196078430000002" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <segue destination="mkq-ia-GN1" kind="unwind" unwindAction="cancel:" id="l3w-qC-eoV"/>
+                                            </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Flc-4l-JYi">
                                             <color key="tintColor" red="0.96862745100000003" green="0.50196078430000002" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -111,14 +117,15 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lfy-R6-R9C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="mkq-ia-GN1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1556.521739130435" y="-449.33035714285711"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Alarm-->
         <scene sceneID="Dst-Iw-x5i">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zIm-GD-W69" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Icon-App-40x40-1" selectedImage="Icon-App-40x40-1" id="oLX-DG-HmE"/>
+                    <tabBarItem key="tabBarItem" title="Alarm" image="alarm" catalog="system" selectedImage="alarm" id="oLX-DG-HmE"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="fU2-CB-6DV">
@@ -145,6 +152,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Icon-App-40x40-1" width="40" height="40"/>
+        <image name="alarm" catalog="system" width="60" height="64"/>
     </resources>
 </document>

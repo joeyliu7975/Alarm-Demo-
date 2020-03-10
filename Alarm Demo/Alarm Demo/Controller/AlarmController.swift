@@ -39,9 +39,12 @@ class AlarmController: UIViewController{
            sender.title = (alarmTableView.isEditing == true ? "Done" : "Edit")
        }
     
+    @IBAction func cancel(_ unwindSegue: UIStoryboardSegue){
+    }
 }
 
 extension AlarmController: UITableViewDataSource, UITableViewDelegate {
+    // Trailing Swipe to Delete
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
             self.mockDataLists.remove(at: indexPath.row)
@@ -50,6 +53,15 @@ extension AlarmController: UITableViewDataSource, UITableViewDelegate {
             completionHandler(true)
         }
         return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    
+    // Editing Mode trailing EditingStyle
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90.0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

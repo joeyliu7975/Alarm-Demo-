@@ -55,6 +55,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" red="0.96862745100000003" green="0.50196078430000002" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="OvI-HE-rVd" kind="relationship" relationship="viewControllers" id="d1e-MT-bhx"/>

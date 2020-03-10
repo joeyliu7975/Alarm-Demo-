@@ -23,11 +23,11 @@
             </objects>
             <point key="canvasLocation" x="568.1159420289855" y="-449.33035714285711"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--World Clock-->
         <scene sceneID="zgw-Xo-uMU">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Y4O-Ey-864" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Icon-App-40x40-2" selectedImage="Icon-App-40x40-2" id="dDf-Hi-LQH"/>
+                    <tabBarItem key="tabBarItem" title="World Clock" image="globe" catalog="system" selectedImage="globe" id="dDf-Hi-LQH"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="ebb-k8-ezZ">
@@ -52,6 +52,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Icon-App-40x40-2" width="40" height="40"/>
+        <image name="globe" catalog="system" width="64" height="62"/>
     </resources>
 </document>

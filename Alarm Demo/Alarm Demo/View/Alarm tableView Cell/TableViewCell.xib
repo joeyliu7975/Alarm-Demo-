@@ -10,34 +10,34 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableViewCell" id="KGk-i7-Jjw" customClass="TableViewCell" customModule="Alarm_Demo" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QC1-mR-DER">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19:00PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EU9-Ad-FGW">
-                                <rect key="frame" x="31" y="15" width="100" height="50"/>
+                                <rect key="frame" x="31" y="5" width="180" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="kLF-O7-KcB"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="uLq-7h-V13"/>
-                                    <constraint firstAttribute="width" constant="100" id="yZu-Wp-7Uq"/>
+                                    <constraint firstAttribute="height" constant="60" id="kLF-O7-KcB"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="uLq-7h-V13"/>
+                                    <constraint firstAttribute="width" constant="180" id="yZu-Wp-7Uq"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alarm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGV-lb-ks9">
-                                <rect key="frame" x="31" y="52" width="45" height="21"/>
+                                <rect key="frame" x="31" y="65" width="45" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tzg-js-eWs">
-                                <rect key="frame" x="346" y="25" width="51" height="31"/>
+                            <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tzg-js-eWs">
+                                <rect key="frame" x="346" y="25" width="51" height="41"/>
                                 <connections>
                                     <action selector="switchAction:" destination="KGk-i7-Jjw" eventType="valueChanged" id="hxI-k3-vXk"/>
                                 </connections>
@@ -45,12 +45,12 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="EU9-Ad-FGW" firstAttribute="centerY" secondItem="QC1-mR-DER" secondAttribute="centerY" id="29J-Qz-UhQ"/>
                             <constraint firstItem="EU9-Ad-FGW" firstAttribute="leading" secondItem="QC1-mR-DER" secondAttribute="leading" constant="31" id="4Es-lS-ATV"/>
                             <constraint firstItem="tzg-js-eWs" firstAttribute="top" secondItem="QC1-mR-DER" secondAttribute="top" constant="25" id="Wio-k0-aMm"/>
-                            <constraint firstItem="vGV-lb-ks9" firstAttribute="top" secondItem="QC1-mR-DER" secondAttribute="top" constant="52" id="YPG-PX-cvc"/>
+                            <constraint firstItem="vGV-lb-ks9" firstAttribute="top" secondItem="EU9-Ad-FGW" secondAttribute="bottom" id="YPG-PX-cvc"/>
                             <constraint firstAttribute="bottom" secondItem="tzg-js-eWs" secondAttribute="bottom" constant="24" id="Zt5-Ng-shX"/>
-                            <constraint firstAttribute="bottom" secondItem="vGV-lb-ks9" secondAttribute="bottom" constant="7" id="gzi-gT-Od0"/>
+                            <constraint firstItem="EU9-Ad-FGW" firstAttribute="top" secondItem="QC1-mR-DER" secondAttribute="top" constant="5" id="eLq-Ii-yL0"/>
+                            <constraint firstAttribute="bottom" secondItem="vGV-lb-ks9" secondAttribute="bottom" constant="10" id="gzi-gT-Od0"/>
                             <constraint firstItem="vGV-lb-ks9" firstAttribute="leading" secondItem="QC1-mR-DER" secondAttribute="leading" constant="31" id="oRE-Qx-CdY"/>
                             <constraint firstAttribute="trailing" secondItem="tzg-js-eWs" secondAttribute="trailing" constant="19" id="wkK-bj-ZYw"/>
                         </constraints>
