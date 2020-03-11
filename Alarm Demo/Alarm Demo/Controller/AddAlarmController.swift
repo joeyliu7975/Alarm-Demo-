@@ -13,12 +13,14 @@ class AddAlarmController: UIViewController {
     @IBOutlet weak var alarmTimePicker: UIDatePicker!
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         alarmTimePicker.backgroundColor = .black
         alarmTimePicker.setValue(UIColor.white, forKey: "textColor")
+       
     }
     
 }

@@ -39,10 +39,7 @@
                                 </items>
                             </navigationBar>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sJY-Le-qBu">
-                                <rect key="frame" x="0.0" y="323" width="414" height="298"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="298" id="EKI-Nx-tCB"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="323" width="414" height="539"/>
                                 <connections>
                                     <segue destination="EBl-ij-pZm" kind="embed" id="x8b-fd-uza"/>
                                 </connections>
@@ -52,6 +49,7 @@
                         <constraints>
                             <constraint firstItem="HKi-Rq-nrJ" firstAttribute="trailing" secondItem="qDJ-LU-bdc" secondAttribute="trailing" id="4Pl-yD-Uhk"/>
                             <constraint firstItem="sJY-Le-qBu" firstAttribute="trailing" secondItem="NVt-Ap-M9y" secondAttribute="trailing" id="BGz-dJ-Euo"/>
+                            <constraint firstItem="NVt-Ap-M9y" firstAttribute="bottom" secondItem="sJY-Le-qBu" secondAttribute="bottom" id="HK1-dF-Z23"/>
                             <constraint firstItem="HKi-Rq-nrJ" firstAttribute="leading" secondItem="qDJ-LU-bdc" secondAttribute="leading" id="a5q-E5-I6e"/>
                             <constraint firstItem="sJY-Le-qBu" firstAttribute="leading" secondItem="NVt-Ap-M9y" secondAttribute="leading" id="ihF-eQ-7Ff"/>
                             <constraint firstItem="qDJ-LU-bdc" firstAttribute="leading" secondItem="NVt-Ap-M9y" secondAttribute="leading" id="jbN-SN-98S"/>
@@ -74,12 +72,12 @@
             </objects>
             <point key="canvasLocation" x="-391.304347826087" y="-177.45535714285714"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Table View Inside Container View Table View Controller-->
         <scene sceneID="Zmc-N4-vxl">
             <objects>
-                <tableViewController id="EBl-ij-pZm" sceneMemberID="viewController">
+                <tableViewController id="EBl-ij-pZm" customClass="TableViewInsideContainerViewTableViewController" customModule="Alarm_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="28" id="27g-dI-aYz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="298"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="539"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <sections>
@@ -212,11 +210,11 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gJi-gz-4Mq">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gJi-gz-4Mq">
                                                     <rect key="frame" x="350" y="6.5" width="51" height="31"/>
                                                 </switch>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.1176466122" green="0.1176440492" blue="0.1176472232" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="backgroundColor" red="0.14509803921568626" green="0.14509803921568626" blue="0.14509803921568626" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstItem="pbr-OI-FJg" firstAttribute="leading" secondItem="lnV-V7-bQI" secondAttribute="leadingMargin" constant="26" id="V1V-E1-bwn"/>
                                                 <constraint firstItem="pbr-OI-FJg" firstAttribute="centerY" secondItem="lnV-V7-bQI" secondAttribute="centerY" id="qK7-Wt-Pca"/>
@@ -233,6 +231,9 @@
                             <outlet property="delegate" destination="EBl-ij-pZm" id="0Rj-Ea-NgQ"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="addAlarmSettingTableView" destination="27g-dI-aYz" id="hwj-73-Iev"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nHy-8g-Lvm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

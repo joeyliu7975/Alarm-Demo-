@@ -12,12 +12,14 @@ class TableViewCell: UITableViewCell {
 
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var alarmLabel: UILabel!
-    @IBOutlet weak var switchLabel: UISwitch!
+    @IBOutlet weak var switchButton: UISwitch!
+    @IBOutlet weak var arrowImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
+        arrowImage.isHidden = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
