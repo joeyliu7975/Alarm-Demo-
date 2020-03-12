@@ -18,13 +18,14 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dfK-lO-yOS">
                                 <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="gun-dJ-BUH" id="OT4-0O-jxV"/>
                                     <outlet property="delegate" destination="gun-dJ-BUH" id="Ev7-Ai-Ygq"/>
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Wgq-nb-MYh" firstAttribute="bottom" secondItem="dfK-lO-yOS" secondAttribute="bottom" id="BUz-47-ycu"/>
                             <constraint firstItem="dfK-lO-yOS" firstAttribute="trailing" secondItem="Tzl-qr-AkB" secondAttribute="trailing" id="YKS-fw-17o"/>
@@ -43,7 +44,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ayh-FA-F9i">
                             <color key="tintColor" red="0.96862745100000003" green="0.50196078430000002" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="DJH-tU-xqj" kind="modal" id="685-xY-xX3"/>
+                                <segue destination="DJH-tU-xqj" kind="modal" identifier="goToAddAlarm" id="685-xY-xX3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -62,21 +63,20 @@
                 <viewControllerPlaceholder storyboardName="AddAlarm" id="DJH-tU-xqj" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cWL-Cm-6CA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1941" y="-449"/>
+            <point key="canvasLocation" x="1570" y="-449"/>
         </scene>
         <!--Alarm-->
         <scene sceneID="Dst-Iw-x5i">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zIm-GD-W69" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Alarm" image="alarm" catalog="system" selectedImage="alarm" id="oLX-DG-HmE"/>
+                    <tabBarItem key="tabBarItem" title="Alarm" image="alarm.fill" catalog="system" selectedImage="alarm.fill" id="oLX-DG-HmE"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="fU2-CB-6DV">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="barTintColor" cocoaTouchSystemColor="darkTextColor"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -95,6 +95,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="alarm" catalog="system" width="60" height="64"/>
+        <image name="alarm.fill" catalog="system" width="60" height="64"/>
     </resources>
 </document>

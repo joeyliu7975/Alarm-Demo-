@@ -12,9 +12,10 @@ class AlarmController: UIViewController{
     
     @IBOutlet weak var alarmTableView: UITableView!
     @IBOutlet weak var leftBarbuttonItem: UIBarButtonItem!
-     
+    
     var isEditMode: Bool = false
-    var mockDataLists:[String] = ["10:00AM", "3:00PM", "5:00PM", "9:00PM"]
+    var modifyExistAlarm: Bool = false
+    var mockDataLists = [TimePickerManager]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +23,6 @@ class AlarmController: UIViewController{
         
         nibRegister()
         tableViewSeparator()
-        
     }
     
     func nibRegister() {
@@ -36,13 +36,17 @@ class AlarmController: UIViewController{
     }
     
     @IBAction func editButton(_ sender: UIBarButtonItem){
-        alarmTableView.isEditing.toggle()
-        isEditMode = alarmTableView.isEditing
-        sender.title = (alarmTableView.isEditing == true ? "Done" : "Edit")
-        alarmTableView.reloadData()
+        UIView.animate(withDuration: 0.5) {
+            self.alarmTableView.isEditing.toggle()
+            self.isEditMode = self.alarmTableView.isEditing
+            sender.title = (self.alarmTableView.isEditing == true ? "Done" : "Edit")
+        }
     }
     
     @IBAction func cancel(_ unwindSegue: UIStoryboardSegue){
+    }
+    
+    @IBAction func save(_ unwindSegue: UIStoryboardSegue){
     }
 }
 
@@ -60,7 +64,10 @@ extension AlarmController: UITableViewDataSource, UITableViewDelegate {
     
     // Editing Mode trailing EditingStyle
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if isEditMode {
+            modifyExistAlarm = true
+            performSegue(withIdentifier: "goToAddAlarm", sender: nil)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -74,11 +81,11 @@ extension AlarmController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
         
-        cell.timeLabel.text = self.mockDataLists[indexPath.row]
+        self.alarmTableView.allowsSelectionDuringEditing = true
         
-        cell.switchButton.isHidden = isEditMode
+        cell.timeLabel.text = self.mockDataLists[indexPath.row].time
         
-        cell.arrowImage.isHidden = isEditMode ? false : true
+        cell.editingAccessoryType = .disclosureIndicator
         
         return cell
     }

@@ -27,7 +27,7 @@
         <scene sceneID="onY-Jl-y6F">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="N2v-Qr-VNN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Stopwatch" image="stopwatch" catalog="system" selectedImage="stopwatch" id="vgc-OG-YCS"/>
+                    <tabBarItem key="tabBarItem" title="Stopwatch" image="stopwatch.fill" catalog="system" selectedImage="stopwatch.fill" id="vgc-OG-YCS"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="GJj-bS-72C">
@@ -52,6 +52,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="stopwatch" catalog="system" width="60" height="64"/>
+        <image name="stopwatch.fill" catalog="system" width="60" height="64"/>
     </resources>
 </document>

@@ -10,6 +10,6 @@ import UIKit
 
 struct TimePickerManager {
     var time: String
-    var repeatDay: String
-    var snooze: Bool = true
+//    var repeatDay: String
+//    var snooze: Bool = true
 }
