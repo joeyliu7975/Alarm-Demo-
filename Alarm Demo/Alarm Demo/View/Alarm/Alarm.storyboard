@@ -41,10 +41,10 @@
                                 <action selector="editButton:" destination="gun-dJ-BUH" id="VuP-aN-aGy"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ayh-FA-F9i">
+                        <barButtonItem key="rightBarButtonItem" tag="3" systemItem="add" id="ayh-FA-F9i">
                             <color key="tintColor" red="0.96862745100000003" green="0.50196078430000002" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="DJH-tU-xqj" kind="modal" identifier="goToAddAlarm" id="685-xY-xX3"/>
+                                <segue destination="DJH-tU-xqj" kind="show" identifier="goToAddAlarm" id="685-xY-xX3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -60,7 +60,9 @@
         <!--AddAlarm-->
         <scene sceneID="dvx-xV-cFE">
             <objects>
-                <viewControllerPlaceholder storyboardName="AddAlarm" id="DJH-tU-xqj" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="AddAlarm" id="DJH-tU-xqj" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="kQY-Jy-tWr"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cWL-Cm-6CA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1570" y="-449"/>

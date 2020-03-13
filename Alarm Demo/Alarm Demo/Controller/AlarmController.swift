@@ -16,6 +16,8 @@ class AlarmController: UIViewController{
     var isEditMode: Bool = false
     var modifyExistAlarm: Bool = false
     var mockDataLists = [TimePickerManager]()
+    // VC2
+    var modifyExistRow: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,9 +68,28 @@ extension AlarmController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isEditMode {
             modifyExistAlarm = true
+            modifyExistRow = indexPath.row
+            
+            //  self.present(T##viewControllerToPresent: UIViewController##UIViewController, animated: <#T##Bool#>, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
+            
             performSegue(withIdentifier: "goToAddAlarm", sender: nil)
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let addController = segue.destination as? AddAlarmController
+            if modifyExistAlarm == true {
+                addController?.temporaryTimeSaver = mockDataLists[modifyExistRow].time
+                print("\(mockDataLists[modifyExistRow].time)")
+                addController?.modifyExistTime = modifyExistAlarm
+            }
+    }
+    
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+    //        if (segue.identifier == "goToAddAlarm"){
+    //            let addAlarmController = segue.destination as! AddAlarmController
+    //        }
+    //    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90.0
@@ -87,7 +108,8 @@ extension AlarmController: UITableViewDataSource, UITableViewDelegate {
         cell.timeLabel.text = self.mockDataLists[indexPath.row].time
         
         cell.editingAccessoryView = UIImageView(image: arrowImage)
-
+        
         return cell
     }
+    
 }

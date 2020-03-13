@@ -13,7 +13,8 @@ class AddAlarmController: UIViewController {
     @IBOutlet weak var alarmTimePicker: UIDatePicker!
     let currentDateTime = Date()
     
-    var timeTemporarySaver: String = ""
+    var temporaryTimeSaver: String = "5"
+    var modifyExistTime: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,30 +26,19 @@ class AddAlarmController: UIViewController {
         let formatter = timeFormatter()
         alarmTimePicker.setDate(currentDateTime, animated: false)
         
-        timeTemporarySaver = formatter.string(from: currentDateTime)
+        //如果是修改現有鬧鐘： TimePickerc變成原有鬧鐘時間，反之則採用當下時間
+        print("\(temporaryTimeSaver)")
+        temporaryTimeSaver = modifyExistTime ? temporaryTimeSaver : formatter.string(from: currentDateTime)
     }
     
     @IBAction func myTimePicker(_ sender: UIDatePicker){
         let dateValue = timeFormatter()
-        timeTemporarySaver = dateValue.string(from: alarmTimePicker.date)
+        temporaryTimeSaver = dateValue.string(from: alarmTimePicker.date)
     }
     
-    // cancel barbuttonItem tag = 1, save barbuttonItem tag = 2.
-    
-    override func prepare(for segue: UIStoryboardSegue,sender: Any?) {
-        let alarmController = segue.destination as? AlarmController
-        
-        navigationBackItem()
-        
-        guard let button = sender as? UIBarButtonItem else { return }
-        if button.tag == 2 {
-            alarmController?.mockDataLists.append(TimePickerManager(time: timeTemporarySaver))
-        } else {
-            return
-        }
-        alarmController?.alarmTableView.reloadData()
-    }
-    
+}
+
+extension AddAlarmController {
     func navigationBackItem() {
         let backItem = UIBarButtonItem()
         backItem.title = "back"
@@ -60,5 +50,28 @@ class AddAlarmController: UIViewController {
         dateValue.dateFormat = "HH:mm a"
         dateValue.timeStyle = .short
         return dateValue
+    }
+    
+    // UnwindSegue && Cancel barbuttonItem tag = 1, Save barbuttonItem tag = 2
+    override func prepare(for segue: UIStoryboardSegue,sender: Any?) {
+        let alarmController = segue.destination as? AlarmController
+        
+        navigationBackItem()
+        
+        alarmController?.alarmTableView.isEditing = false
+        alarmController?.leftBarbuttonItem.title = "Edit"
+        //        alarmController?.modifyExistAlarm = false
+        
+        guard let button = sender as? UIBarButtonItem else { return }
+        switch button.tag {
+        case 2:
+            alarmController?.mockDataLists.append(TimePickerManager(time: temporaryTimeSaver))
+            modifyExistTime = false
+        default:
+            modifyExistTime = false
+            break  
+        }
+        
+        alarmController?.alarmTableView.reloadData()
     }
 }
