@@ -80,13 +80,14 @@ extension AlarmController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
+        let arrowImage = UIImage(named: "arrow")
         
         self.alarmTableView.allowsSelectionDuringEditing = true
         
         cell.timeLabel.text = self.mockDataLists[indexPath.row].time
         
-        cell.editingAccessoryType = .disclosureIndicator
-        
+        cell.editingAccessoryView = UIImageView(image: arrowImage)
+
         return cell
     }
 }

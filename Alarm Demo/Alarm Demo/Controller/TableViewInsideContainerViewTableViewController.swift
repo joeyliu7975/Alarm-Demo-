@@ -19,6 +19,23 @@ class TableViewInsideContainerViewTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+            case 0:
+            performSegue(withIdentifier: "goToRepeat", sender: nil)
+//                let storyBoard : UIStoryboard = UIStoryboard(name: "AddAlarm", bundle:nil)
+//                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "goToRepeat")
+//                self.present(nextViewController, animated:true, completion:nil)
+            case 1:
+            performSegue(withIdentifier: "goToLabel", sender: nil)
+//               let storyBoard : UIStoryboard = UIStoryboard(name: "AddAlarm", bundle:nil)
+//                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "goToLabel")
+//                self.present(nextViewController, animated:true, completion:nil)
+            default:
+                break
+        }
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1

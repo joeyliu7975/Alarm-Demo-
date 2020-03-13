@@ -11,7 +11,9 @@ import UIKit
 class AddAlarmController: UIViewController {
     
     @IBOutlet weak var alarmTimePicker: UIDatePicker!
-    var timeTemporarySaver: String = "10:18 AM"
+    let currentDateTime = Date()
+    
+    var timeTemporarySaver: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,14 +22,14 @@ class AddAlarmController: UIViewController {
         alarmTimePicker.backgroundColor = .black
         alarmTimePicker.setValue(UIColor.white, forKey: "textColor")
         
+        let formatter = timeFormatter()
+        alarmTimePicker.setDate(currentDateTime, animated: false)
+        
+        timeTemporarySaver = formatter.string(from: currentDateTime)
     }
     
-    
-    
     @IBAction func myTimePicker(_ sender: UIDatePicker){
-        let dateValue = DateFormatter()
-        dateValue.dateFormat = "HH:mm a"
-        dateValue.timeStyle = .short
+        let dateValue = timeFormatter()
         timeTemporarySaver = dateValue.string(from: alarmTimePicker.date)
     }
     
@@ -36,6 +38,8 @@ class AddAlarmController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue,sender: Any?) {
         let alarmController = segue.destination as? AlarmController
         
+        navigationBackItem()
+        
         guard let button = sender as? UIBarButtonItem else { return }
         if button.tag == 2 {
             alarmController?.mockDataLists.append(TimePickerManager(time: timeTemporarySaver))
@@ -43,5 +47,18 @@ class AddAlarmController: UIViewController {
             return
         }
         alarmController?.alarmTableView.reloadData()
+    }
+    
+    func navigationBackItem() {
+        let backItem = UIBarButtonItem()
+        backItem.title = "back"
+        backItem.tintColor = UIColor.orange
+        navigationItem.backBarButtonItem = backItem
+    }
+    func timeFormatter() -> DateFormatter {
+        let dateValue = DateFormatter()
+        dateValue.dateFormat = "HH:mm a"
+        dateValue.timeStyle = .short
+        return dateValue
     }
 }

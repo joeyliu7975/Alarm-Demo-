@@ -72,6 +72,7 @@
                     <constraint firstAttribute="bottom" secondItem="QC1-mR-DER" secondAttribute="bottom" id="uiL-xm-HY6"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="alarmLabel" destination="vGV-lb-ks9" id="1Gd-Ow-tmp"/>
