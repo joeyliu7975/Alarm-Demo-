@@ -16,8 +16,7 @@ class AlarmController: UIViewController{
     var isEditMode: Bool = false
     var modifyExistAlarm: Bool = false
     var mockDataLists = [TimePickerManager]()
-    // VC2
-    var modifyExistRow: Int = 0
+    var modifyExistRow: Int = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +49,29 @@ class AlarmController: UIViewController{
     
     @IBAction func save(_ unwindSegue: UIStoryboardSegue){
     }
+    
+    func bubbleSorted(){
+        for i in 0 ... mockDataLists.count - 1{
+//            guard mockDataLists.count >= 1 else { return }
+            let currentOne = timeFormatter(time: mockDataLists[i].time)
+            for a in 0 ... mockDataLists.count - 1{
+                let replaceOne = timeFormatter(time: mockDataLists[a].time)
+                if currentOne < replaceOne {
+                    let tempData:TimePickerManager = mockDataLists[i]
+                    mockDataLists[i] = mockDataLists[a]
+                    mockDataLists[a] = tempData
+                }
+            }
+        }
+    }
+    
+    func timeFormatter(time: String) -> Date{
+        let string = time
+        let df = DateFormatter()
+        df.dateFormat = "hh:mm a"
+        let result = df.date(from: string)
+        return result!
+    }
 }
 
 extension AlarmController: UITableViewDataSource, UITableViewDelegate {
@@ -58,7 +80,6 @@ extension AlarmController: UITableViewDataSource, UITableViewDelegate {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
             self.mockDataLists.remove(at: indexPath.row)
             self.alarmTableView.deleteRows(at: [indexPath], with: .automatic)
-            
             completionHandler(true)
         }
         return UISwipeActionsConfiguration(actions: [deleteAction])
@@ -70,26 +91,20 @@ extension AlarmController: UITableViewDataSource, UITableViewDelegate {
             modifyExistAlarm = true
             modifyExistRow = indexPath.row
             
-            //  self.present(T##viewControllerToPresent: UIViewController##UIViewController, animated: <#T##Bool#>, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
-            
             performSegue(withIdentifier: "goToAddAlarm", sender: nil)
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let addController = segue.destination as? AddAlarmController
-            if modifyExistAlarm == true {
-                addController?.temporaryTimeSaver = mockDataLists[modifyExistRow].time
-                print("\(mockDataLists[modifyExistRow].time)")
-                addController?.modifyExistTime = modifyExistAlarm
-            }
+        if modifyExistAlarm == true {
+            //81行決定現在時間，82行決定是否進入isEditing，
+            addController?.temporaryTimeSaver = mockDataLists[modifyExistRow].time
+            addController?.modifyExistTime = true
+            addController?.modifyExistRow = modifyExistRow
+        }
+        modifyExistAlarm = false
     }
-    
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-    //        if (segue.identifier == "goToAddAlarm"){
-    //            let addAlarmController = segue.destination as! AddAlarmController
-    //        }
-    //    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90.0
@@ -111,5 +126,4 @@ extension AlarmController: UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
-    
 }

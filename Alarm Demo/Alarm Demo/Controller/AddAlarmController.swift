@@ -13,11 +13,15 @@ class AddAlarmController: UIViewController {
     @IBOutlet weak var alarmTimePicker: UIDatePicker!
     let currentDateTime = Date()
     
-    var temporaryTimeSaver: String = "5"
+    var timePickerManager: TimePickerManager?
+    var temporaryTimeSaver: String = ""
     var modifyExistTime: Bool = false
+    var modifyExistRow: Int = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tabBarController?.tabBar.isHidden = true
         
         // Do any additional setup after loading the view.
         alarmTimePicker.backgroundColor = .black
@@ -26,7 +30,7 @@ class AddAlarmController: UIViewController {
         let formatter = timeFormatter()
          //如果是修改現有鬧鐘： TimePickerc變成原有鬧鐘時間，反之則採用當下時間
         temporaryTimeSaver = modifyExistTime ? temporaryTimeSaver : formatter.string(from: currentDateTime)
-        //判斷時間是否有存取
+        //判斷是否有存取現有鬧鐘
         switch temporaryTimeSaver {
         case "":
             alarmTimePicker.setDate(currentDateTime, animated: false)
@@ -43,7 +47,6 @@ class AddAlarmController: UIViewController {
         let dateValue = timeFormatter()
         temporaryTimeSaver = dateValue.string(from: alarmTimePicker.date)
     }
-    
 }
 
 extension AddAlarmController {
@@ -53,6 +56,7 @@ extension AddAlarmController {
         backItem.tintColor = UIColor.orange
         navigationItem.backBarButtonItem = backItem
     }
+    
     func timeFormatter() -> DateFormatter {
         let dateValue = DateFormatter()
         dateValue.dateFormat = "HH:mm a"
@@ -71,15 +75,23 @@ extension AddAlarmController {
         //        alarmController?.modifyExistAlarm = false
         
         guard let button = sender as? UIBarButtonItem else { return }
-        switch button.tag {
-        case 2:
+        switch (button.tag, modifyExistTime) {
+        case (2, false):
             alarmController?.mockDataLists.append(TimePickerManager(time: temporaryTimeSaver))
             modifyExistTime = false
+            self.tabBarController?.tabBar.isHidden = false
+            alarmController?.bubbleSorted()
+        case (2, true):
+            alarmController?.mockDataLists[modifyExistRow].time = temporaryTimeSaver
+            modifyExistTime = false
+            self.tabBarController?.tabBar.isHidden = false
+            alarmController?.bubbleSorted()
         default:
             modifyExistTime = false
+            self.tabBarController?.tabBar.isHidden = false
+//             alarmController?.bubbleSorted()
             break  
         }
-        
         alarmController?.alarmTableView.reloadData()
     }
 }

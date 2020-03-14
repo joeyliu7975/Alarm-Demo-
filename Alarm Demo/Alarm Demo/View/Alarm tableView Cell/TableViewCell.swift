@@ -10,10 +10,21 @@ import UIKit
 
 class TableViewCell: UITableViewCell {
 
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var meridiem: UILabel!
-    @IBOutlet weak var alarmLabel: UILabel!
-    @IBOutlet weak var switchButton: UISwitch!
+    @IBOutlet weak var timeLabel: UILabel! {
+        didSet {
+            self.timeLabel.textColor = UIColor.white
+        }
+    }
+    @IBOutlet weak var alarmLabel: UILabel! {
+       didSet {
+        self.alarmLabel.textColor = UIColor.white
+        }
+    }
+    @IBOutlet weak var switchButton: UISwitch! {
+        didSet {
+            self.switchButton.isOn = true
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -11,5 +11,8 @@ import UIKit
 struct TimePickerManager {
     var time: String
 //    var repeatDay: String
-//    var snooze: Bool = true
+//    var snooze:
+//    var switchButton: Bool
+//    var label: String = "Alarm"
 }
+
