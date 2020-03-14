@@ -24,11 +24,19 @@ class AddAlarmController: UIViewController {
         alarmTimePicker.setValue(UIColor.white, forKey: "textColor")
         
         let formatter = timeFormatter()
-        alarmTimePicker.setDate(currentDateTime, animated: false)
-        
-        //如果是修改現有鬧鐘： TimePickerc變成原有鬧鐘時間，反之則採用當下時間
-        print("\(temporaryTimeSaver)")
+         //如果是修改現有鬧鐘： TimePickerc變成原有鬧鐘時間，反之則採用當下時間
         temporaryTimeSaver = modifyExistTime ? temporaryTimeSaver : formatter.string(from: currentDateTime)
+        //判斷時間是否有存取
+        switch temporaryTimeSaver {
+        case "":
+            alarmTimePicker.setDate(currentDateTime, animated: false)
+        default:
+            let string = temporaryTimeSaver
+            let df = DateFormatter()
+            df.dateFormat = "hh:mm a"
+            let result = df.date(from: string)
+            alarmTimePicker.setDate(result!, animated: false)
+        }
     }
     
     @IBAction func myTimePicker(_ sender: UIDatePicker){
