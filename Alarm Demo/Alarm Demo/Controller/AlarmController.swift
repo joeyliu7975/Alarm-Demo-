@@ -24,6 +24,7 @@ class AlarmController: UIViewController{
         
         nibRegister()
         tableViewSeparator()
+        alarmTableView.allowsSelection = false
     }
     
     func nibRegister() {
@@ -39,6 +40,7 @@ class AlarmController: UIViewController{
     @IBAction func editButton(_ sender: UIBarButtonItem){
         UIView.animate(withDuration: 0.5) {
             self.alarmTableView.isEditing.toggle()
+            self.alarmTableView.allowsSelection.toggle()
             self.isEditMode = self.alarmTableView.isEditing
             sender.title = (self.alarmTableView.isEditing == true ? "Done" : "Edit")
         }
@@ -77,10 +79,6 @@ class AlarmController: UIViewController{
 extension AlarmController: UITableViewDataSource, UITableViewDelegate
 {
     
-    func changeSwitchIsOn(isOn: Bool) {
-    }
-    
-    
     // Trailing Swipe to Delete
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
@@ -96,11 +94,12 @@ extension AlarmController: UITableViewDataSource, UITableViewDelegate
         if isEditMode {
             modifyExistAlarm = true
             modifyExistRow = indexPath.row
-            alarmTableView.cellForRow(at: indexPath)?.selectionStyle = .gray
+//            alarmTableView.cellForRow(at: indexPath)?.selectionStyle = .gray
             performSegue(withIdentifier: "goToAddAlarm", sender: nil)
-        } else {
-            alarmTableView.cellForRow(at: indexPath)?.selectionStyle = .none
         }
+//        else {
+//            alarmTableView.cellForRow(at: indexPath)?.selectionStyle = .none
+//        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -125,6 +124,8 @@ extension AlarmController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
         let arrowImage = UIImage(named: "arrow")
+        //生成時設定好 selectionStyle
+//        alarmTableView.cellForRow(at: indexPath)?.selectionStyle = isEditMode ? .gray : .none
         
         //應該改動 mockDataLists[indexPath.row[的switchButtonIsOn]的Boolean值
         self.mockDataLists[indexPath.row].switchButtonIsOn = cell.switchSendBackValue

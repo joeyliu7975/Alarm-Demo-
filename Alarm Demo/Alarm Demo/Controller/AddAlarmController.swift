@@ -92,6 +92,7 @@ extension AddAlarmController {
             alarmController?.alarmTableView.reloadData()
         default:
             modifyExistTime = false
+            alarmController?.alarmTableView.allowsSelection = false
             self.tabBarController?.tabBar.isHidden = false
             break
         }
