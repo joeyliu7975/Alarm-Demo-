@@ -74,7 +74,13 @@ class AlarmController: UIViewController{
     }
 }
 
-extension AlarmController: UITableViewDataSource, UITableViewDelegate {
+extension AlarmController: UITableViewDataSource, UITableViewDelegate
+{
+    
+    func changeSwitchIsOn(isOn: Bool) {
+    }
+    
+    
     // Trailing Swipe to Delete
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
@@ -90,8 +96,10 @@ extension AlarmController: UITableViewDataSource, UITableViewDelegate {
         if isEditMode {
             modifyExistAlarm = true
             modifyExistRow = indexPath.row
-            
+            alarmTableView.cellForRow(at: indexPath)?.selectionStyle = .gray
             performSegue(withIdentifier: "goToAddAlarm", sender: nil)
+        } else {
+            alarmTableView.cellForRow(at: indexPath)?.selectionStyle = .none
         }
     }
     
@@ -118,12 +126,32 @@ extension AlarmController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
         let arrowImage = UIImage(named: "arrow")
         
+        //應該改動 mockDataLists[indexPath.row[的switchButtonIsOn]的Boolean值
+        self.mockDataLists[indexPath.row].switchButtonIsOn = cell.switchSendBackValue
+        
         self.alarmTableView.allowsSelectionDuringEditing = true
         
         cell.timeLabel.text = self.mockDataLists[indexPath.row].time
         
+        // 當開關被關掉時，把開關打開
+        if cell.activateSwitch.isOn == false && self.mockDataLists[indexPath.row].switchButtonIsOn == false && indexPath.row == modifyExistRow{
+            self.mockDataLists[indexPath.row].switchButtonIsOn = true
+            cell.activateSwitch.isOn = self.mockDataLists[indexPath.row].switchButtonIsOn
+            cell.switchAction(cell.activateSwitch)
+        }
+        
+        self.mockDataLists[indexPath.row].switchButtonIsOn = cell.activateSwitch.isOn
+        
         cell.editingAccessoryView = UIImageView(image: arrowImage)
         
+        switch cell.activateSwitch.isOn {
+            case true:
+                cell.timeLabel.textColor = UIColor.white
+                cell.alarmLabel.textColor = UIColor.white
+            default:
+                cell.timeLabel.textColor = UIColor.gray
+                cell.alarmLabel.textColor = UIColor.gray
+            }
         return cell
     }
 }

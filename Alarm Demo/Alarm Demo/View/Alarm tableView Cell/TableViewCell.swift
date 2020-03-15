@@ -8,23 +8,12 @@
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
-
-    @IBOutlet weak var timeLabel: UILabel! {
-        didSet {
-            self.timeLabel.textColor = UIColor.white
-        }
-    }
-    @IBOutlet weak var alarmLabel: UILabel! {
-       didSet {
-        self.alarmLabel.textColor = UIColor.white
-        }
-    }
-    @IBOutlet weak var switchButton: UISwitch! {
-        didSet {
-            self.switchButton.isOn = true
-        }
-    }
+class TableViewCell: UITableViewCell{
+    
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var alarmLabel: UILabel!
+    @IBOutlet weak var activateSwitch: UISwitch!
+    var switchSendBackValue: Bool = true
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,18 +22,27 @@ class TableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
-    @IBAction func switchAction(_ sender: UISwitch) {
+    @IBAction func switchAction(_ sender: UISwitch){
+        switchWillReturnValue(isOn: sender.isOn)
         switch sender.isOn {
         case true:
             timeLabel.textColor = UIColor.white
             alarmLabel.textColor = UIColor.white
+            switchSendBackValue = true
         default:
             timeLabel.textColor = UIColor.gray
             alarmLabel.textColor = UIColor.gray
+            switchSendBackValue = false
         }
     }
+    
+    func switchWillReturnValue(isOn: Bool){
+        print("\(isOn)")
+    }
+
+    
 }

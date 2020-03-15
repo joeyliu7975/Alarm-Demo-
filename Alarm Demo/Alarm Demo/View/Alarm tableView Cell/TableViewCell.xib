@@ -36,7 +36,7 @@
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iM6-Ov-wQV">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iM6-Ov-wQV">
                                 <rect key="frame" x="349" y="29.5" width="51" height="31"/>
                                 <connections>
                                     <action selector="switchAction:" destination="KGk-i7-Jjw" eventType="valueChanged" id="L2h-Wt-WpM"/>
@@ -49,7 +49,6 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="EU9-Ad-FGW" firstAttribute="leading" secondItem="QC1-mR-DER" secondAttribute="leading" constant="25" id="4Es-lS-ATV"/>
                             <constraint firstItem="4L9-PZ-Pd8" firstAttribute="top" secondItem="QC1-mR-DER" secondAttribute="top" constant="35" id="7Hg-rx-qf8"/>
@@ -75,8 +74,8 @@
             <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="activateSwitch" destination="iM6-Ov-wQV" id="A9D-ba-aSz"/>
                 <outlet property="alarmLabel" destination="vGV-lb-ks9" id="1Gd-Ow-tmp"/>
-                <outlet property="switchButton" destination="iM6-Ov-wQV" id="A9D-ba-aSz"/>
                 <outlet property="timeLabel" destination="EU9-Ad-FGW" id="T3Q-VF-5yz"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="127.90178571428571"/>

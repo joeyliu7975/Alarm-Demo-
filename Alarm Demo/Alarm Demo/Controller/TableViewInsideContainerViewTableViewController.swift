@@ -22,16 +22,19 @@ class TableViewInsideContainerViewTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
             case 0:
+            addAlarmSettingTableView.deselectRow(at: indexPath, animated: true)
             performSegue(withIdentifier: "goToRepeat", sender: nil)
 //                let storyBoard : UIStoryboard = UIStoryboard(name: "AddAlarm", bundle:nil)
 //                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "goToRepeat")
 //                self.present(nextViewController, animated:true, completion:nil)
             case 1:
+            addAlarmSettingTableView.deselectRow(at: indexPath, animated: true)
             performSegue(withIdentifier: "goToLabel", sender: nil)
 //               let storyBoard : UIStoryboard = UIStoryboard(name: "AddAlarm", bundle:nil)
 //                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "goToLabel")
 //                self.present(nextViewController, animated:true, completion:nil)
             default:
+                addAlarmSettingTableView.deselectRow(at: indexPath, animated: true)
                 break
         }
     }

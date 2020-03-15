@@ -71,7 +71,7 @@
             <objects>
                 <tableViewController id="EBl-ij-pZm" customClass="TableViewInsideContainerViewTableViewController" customModule="Alarm_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="28" id="27g-dI-aYz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="558"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="602"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <sections>
@@ -104,7 +104,6 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.1450975239" green="0.14509454369999999" blue="0.14509823920000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="dq1-EQ-v1L" secondAttribute="trailing" constant="15" id="BW7-Mg-fSd"/>
                                                 <constraint firstItem="dq1-EQ-v1L" firstAttribute="leading" secondItem="nVS-sZ-49n" secondAttribute="trailing" constant="5" id="Bxu-xY-Ktw"/>
@@ -114,6 +113,7 @@
                                                 <constraint firstItem="dq1-EQ-v1L" firstAttribute="centerY" secondItem="QOl-7b-oJW" secondAttribute="centerY" id="xvD-xr-nN7"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="edu-Db-ZKP">
                                         <rect key="frame" x="0.0" y="71.5" width="414" height="43.5"/>
@@ -142,7 +142,6 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.1450975239" green="0.14509454369999999" blue="0.14509823920000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstItem="YKY-IW-od2" firstAttribute="centerY" secondItem="VXB-ut-qhE" secondAttribute="centerY" id="5dI-un-mzc"/>
                                                 <constraint firstItem="8ZX-WM-Ejm" firstAttribute="centerY" secondItem="VXB-ut-qhE" secondAttribute="centerY" id="9gw-db-Yp8"/>
@@ -152,6 +151,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="YKY-IW-od2" secondAttribute="trailing" constant="15" id="zL8-Wr-m4d"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="eYh-yr-wgW">
                                         <rect key="frame" x="0.0" y="115" width="414" height="43.5"/>
@@ -180,7 +180,6 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.1450975239" green="0.14509454369999999" blue="0.14509823920000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstItem="n34-Si-GCR" firstAttribute="leading" secondItem="b57-Kt-WgL" secondAttribute="trailing" constant="5" id="Fl1-hn-nE6"/>
                                                 <constraint firstItem="b57-Kt-WgL" firstAttribute="centerY" secondItem="ZsJ-kI-Iio" secondAttribute="centerY" id="G8g-CO-EX3"/>
@@ -190,6 +189,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="n34-Si-GCR" secondAttribute="trailing" constant="15" id="olN-Ck-HF0"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gGi-Y8-8qo">
                                         <rect key="frame" x="0.0" y="158.5" width="414" height="43.5"/>
@@ -208,7 +208,6 @@
                                                     <rect key="frame" x="350" y="6.5" width="51" height="31"/>
                                                 </switch>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.14509803921568626" green="0.14509803921568626" blue="0.14509803921568626" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstItem="pbr-OI-FJg" firstAttribute="leading" secondItem="lnV-V7-bQI" secondAttribute="leadingMargin" constant="26" id="V1V-E1-bwn"/>
                                                 <constraint firstItem="pbr-OI-FJg" firstAttribute="centerY" secondItem="lnV-V7-bQI" secondAttribute="centerY" id="qK7-Wt-Pca"/>
@@ -216,6 +215,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="gJi-gz-4Mq" secondAttribute="trailing" constant="15" id="xRu-hZ-F44"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -238,25 +238,46 @@
         <!--Repeat-->
         <scene sceneID="tSi-UG-t6S">
             <objects>
-                <viewController id="R8z-BG-oFb" sceneMemberID="viewController">
+                <viewController id="R8z-BG-oFb" customClass="RepeatViewController" customModule="Alarm_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eoC-sg-2Fo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AM1-HW-iS9">
+                                <rect key="frame" x="0.0" y="81" width="414" height="350"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="350" id="UQh-ZM-pEK"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="R8z-BG-oFb" id="Pg5-OU-L5d"/>
+                                    <outlet property="delegate" destination="R8z-BG-oFb" id="O7W-em-vxC"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="AM1-HW-iS9" firstAttribute="leading" secondItem="ns7-hD-Dci" secondAttribute="leading" id="QR2-TJ-3Tf"/>
+                            <constraint firstItem="AM1-HW-iS9" firstAttribute="trailing" secondItem="ns7-hD-Dci" secondAttribute="trailing" id="XcE-00-tNg"/>
+                            <constraint firstItem="AM1-HW-iS9" firstAttribute="top" secondItem="ns7-hD-Dci" secondAttribute="top" constant="81" id="sVh-D3-BLh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ns7-hD-Dci"/>
                     </view>
                     <navigationItem key="navigationItem" title="Repeat" id="JSF-YQ-z2g"/>
+                    <connections>
+                        <outlet property="repeatTableView" destination="AM1-HW-iS9" id="DP7-JY-QwT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FBg-vj-ZIr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="519" y="601"/>
+            <point key="canvasLocation" x="518.84057971014499" y="600.66964285714278"/>
         </scene>
         <!--Label-->
         <scene sceneID="UCR-ex-6AQ">
             <objects>
                 <viewController id="eFR-hZ-lC9" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uMA-Zv-NoG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="2aM-PA-UKk"/>

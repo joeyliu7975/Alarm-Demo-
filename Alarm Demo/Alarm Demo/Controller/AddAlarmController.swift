@@ -14,6 +14,7 @@ class AddAlarmController: UIViewController {
     let currentDateTime = Date()
     
     var timePickerManager: TimePickerManager?
+    var tableViewCell: TableViewCell?
     var temporaryTimeSaver: String = ""
     var modifyExistTime: Bool = false
     var modifyExistRow: Int = -1
@@ -72,7 +73,7 @@ extension AddAlarmController {
         
         alarmController?.alarmTableView.isEditing = false
         alarmController?.leftBarbuttonItem.title = "Edit"
-        //        alarmController?.modifyExistAlarm = false
+        alarmController?.isEditMode  = false
         
         guard let button = sender as? UIBarButtonItem else { return }
         switch (button.tag, modifyExistTime) {
@@ -81,17 +82,18 @@ extension AddAlarmController {
             modifyExistTime = false
             self.tabBarController?.tabBar.isHidden = false
             alarmController?.bubbleSorted()
+            alarmController?.alarmTableView.reloadData()
         case (2, true):
             alarmController?.mockDataLists[modifyExistRow].time = temporaryTimeSaver
+            alarmController?.mockDataLists[modifyExistRow].switchButtonIsOn = true
             modifyExistTime = false
             self.tabBarController?.tabBar.isHidden = false
             alarmController?.bubbleSorted()
+            alarmController?.alarmTableView.reloadData()
         default:
             modifyExistTime = false
             self.tabBarController?.tabBar.isHidden = false
-//             alarmController?.bubbleSorted()
-            break  
+            break
         }
-        alarmController?.alarmTableView.reloadData()
     }
 }
