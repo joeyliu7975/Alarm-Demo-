@@ -22,6 +22,7 @@ class LabelViewController: UIViewController{
         didSet {
             self.textField.clearButtonMode = .always
             self.textField.textColor = .white
+            textField.tintColor = .orange
             textField.text = tempLabel
             textField.becomeFirstResponder()
         }

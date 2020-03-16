@@ -283,21 +283,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Alarm" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ve4-9V-2Ae">
-                                <rect key="frame" x="0.0" y="215" width="414" height="34"/>
-                                <color key="backgroundColor" red="0.18039215689999999" green="0.18039215689999999" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g0e-sl-pY2">
+                                <rect key="frame" x="0.0" y="173" width="414" height="34"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Alarm" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ve4-9V-2Ae">
+                                        <rect key="frame" x="10" y="0.0" width="405" height="34"/>
+                                        <color key="backgroundColor" red="0.18039215689999999" green="0.18039215689999999" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="BFW-PX-b0y"/>
+                                            <constraint firstAttribute="width" constant="405" id="Zl1-HT-ZDu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="0.23539465670000001" green="0.23517063260000001" blue="0.24313867089999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="BFW-PX-b0y"/>
+                                    <constraint firstItem="Ve4-9V-2Ae" firstAttribute="top" secondItem="g0e-sl-pY2" secondAttribute="top" id="B7x-qM-2xt"/>
+                                    <constraint firstItem="Ve4-9V-2Ae" firstAttribute="centerY" secondItem="g0e-sl-pY2" secondAttribute="centerY" id="Dta-TP-SeC"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ve4-9V-2Ae" secondAttribute="bottom" id="TIz-CV-Tti"/>
+                                    <constraint firstItem="Ve4-9V-2Ae" firstAttribute="leading" secondItem="g0e-sl-pY2" secondAttribute="leading" constant="10" id="iBf-bY-WWe"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
-                            <constraint firstItem="2aM-PA-UKk" firstAttribute="trailing" secondItem="Ve4-9V-2Ae" secondAttribute="trailing" id="RoE-Cz-WXm"/>
-                            <constraint firstItem="Ve4-9V-2Ae" firstAttribute="centerY" secondItem="uMA-Zv-NoG" secondAttribute="centerY" constant="-42" id="iiK-qo-sCZ"/>
-                            <constraint firstItem="Ve4-9V-2Ae" firstAttribute="leading" secondItem="2aM-PA-UKk" secondAttribute="leading" id="mMl-yi-B6c"/>
+                            <constraint firstItem="g0e-sl-pY2" firstAttribute="top" secondItem="2aM-PA-UKk" secondAttribute="top" constant="173" id="7GT-gh-aE9"/>
+                            <constraint firstAttribute="trailing" secondItem="g0e-sl-pY2" secondAttribute="trailing" id="Rqi-1W-Lei"/>
+                            <constraint firstItem="g0e-sl-pY2" firstAttribute="leading" secondItem="uMA-Zv-NoG" secondAttribute="leading" id="WlL-Dk-WvX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2aM-PA-UKk"/>
                     </view>
@@ -308,7 +321,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DgD-z3-5sn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2610" y="-177"/>
+            <point key="canvasLocation" x="2608.6956521739135" y="-177.45535714285714"/>
         </scene>
     </scenes>
     <resources>
