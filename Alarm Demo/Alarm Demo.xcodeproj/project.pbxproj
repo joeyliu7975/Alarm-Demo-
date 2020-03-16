@@ -143,10 +143,10 @@
 			isa = PBXGroup;
 			children = (
 				714B87F12415E18D0035EDAA /* AlarmController.swift */,
-				712515FD24187F0A003C5365 /* TableViewInsideContainerViewTableViewController.swift */,
 				7116C58024173529003738F9 /* AddAlarmController.swift */,
-				71C41161241DE1960070EBA5 /* RepeatViewController.swift */,
+				712515FD24187F0A003C5365 /* TableViewInsideContainerViewTableViewController.swift */,
 				71C41163241EF0AC0070EBA5 /* LabelViewController.swift */,
+				71C41161241DE1960070EBA5 /* RepeatViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

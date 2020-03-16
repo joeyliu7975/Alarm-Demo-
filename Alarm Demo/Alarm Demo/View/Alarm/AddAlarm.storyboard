@@ -228,7 +228,7 @@
                     <connections>
                         <outlet property="addAlarmSettingTableView" destination="27g-dI-aYz" id="hwj-73-Iev"/>
                         <outlet property="alarmName" destination="zOZ-Fz-xPz" id="ivk-YN-9H2"/>
-                        <outlet property="alarmNameLabel" destination="AVB-8l-KmL" id="OPU-AW-BGf"/>
+                        <outlet property="alarmNameLabelConstraint" destination="AVB-8l-KmL" id="OPU-AW-BGf"/>
                         <outlet property="repeatDayLabel" destination="nVS-sZ-49n" id="aWM-x8-7JY"/>
                         <segue destination="eFR-hZ-lC9" kind="show" identifier="goToLabel" id="THa-vY-TRu"/>
                         <segue destination="R8z-BG-oFb" kind="show" identifier="goToRepeat" id="MHf-Cl-B4P"/>

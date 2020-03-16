@@ -10,17 +10,25 @@ import UIKit
 
 class TableViewInsideContainerViewTableViewController: UITableViewController {
     
-    @IBOutlet weak var addAlarmSettingTableView: UITableView!
+    @IBOutlet weak var addAlarmSettingTableView: UITableView! {
+        didSet {
+            addAlarmSettingTableView.tableFooterView = UIView()
+        }
+    }
     @IBOutlet weak var repeatDayLabel: UILabel!
-    @IBOutlet weak var alarmNameLabel: NSLayoutConstraint!
+    @IBOutlet weak var alarmNameLabelConstraint: NSLayoutConstraint!
     @IBOutlet weak var alarmName: UILabel!
     
+    var delegate: PassTextFieldDelegate?
     var statusTitles = [Bool](repeating: false, count: 7)
-    var statusLabel: String = ""
+    var statusString: String = ""
+    var alarmString: String = "Alarm"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addAlarmSettingTableView.tableFooterView = UIView()
+        
+        alarmName.text = alarmString
+//        addAlarmSettingTableView.reloadData()
     }
     
     // MARK: - Table view data source
@@ -31,31 +39,14 @@ class TableViewInsideContainerViewTableViewController: UITableViewController {
             addAlarmSettingTableView.deselectRow(at: indexPath, animated: true)
             
             performSegue(withIdentifier: "goToRepeat", sender: nil)
-            //                let storyBoard : UIStoryboard = UIStoryboard(name: "AddAlarm", bundle:nil)
-            //                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "goToRepeat")
-        //                self.present(nextViewController, animated:true, completion:nil)
         case 1:
             addAlarmSettingTableView.deselectRow(at: indexPath, animated: true)
             performSegue(withIdentifier: "goToLabel", sender: nil)
-            //               let storyBoard : UIStoryboard = UIStoryboard(name: "AddAlarm", bundle:nil)
-            //                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "goToLabel")
-        //                self.present(nextViewController, animated:true, completion:nil)
         default:
             addAlarmSettingTableView.deselectRow(at: indexPath, animated: true)
             break
         }
     }
-//
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 1
-//    }
-//
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of rows
-//        return 4
-//    }
-    
     
     /*
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -102,47 +93,33 @@ class TableViewInsideContainerViewTableViewController: UITableViewController {
      }
      */
     
-
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
         if let repeatDayDestination = segue.destination as? RepeatViewController {
             repeatDayDestination.delegate = self
         }
         
         if let labelDestination = segue.destination as? LabelViewController {
             labelDestination.delegate = self
+            labelDestination.tempLabel = alarmString
         }
-     }
+    }
 }
 
 extension TableViewInsideContainerViewTableViewController: PassDayCheckmarks, PassTextFieldDelegate {
     func passText(alarmName: String) {
         self.alarmName.text = alarmName
+        alarmString = alarmName
+        //Pass Data back to AddAlarmVC
+        delegate?.passText(alarmName: alarmString)
     }
     
     func passDayCheckMarks(array: [Bool]) {
         statusTitles = array
-        }
-    }
-
-struct WeekDay {
-    let rawValue: Int
-    let name: String
-    
-    static let mon = WeekDay(rawValue: 1, name: "Monday")
-    static let tue = WeekDay(rawValue: 1<<1, name: "Tuesday")
-    static let wed = WeekDay(rawValue: 1<<2, name: "Wednesday")
-    static let thu = WeekDay(rawValue: 1<<3, name: "Thursday")
-    static let fri = WeekDay(rawValue: 1<<4, name: "Friday")
-    static let sat = WeekDay(rawValue: 1<<5, name: "Saturday")
-    static let sun = WeekDay(rawValue: 1<<6, name: "Sunday")
-    
-    static let all: [WeekDay] = [.mon, .tue, .wed, .thu, .fri, .sat, .sun]
-    func isIncluded(in schedule: Int) -> Bool {
-      return schedule & rawValue == rawValue
     }
 }

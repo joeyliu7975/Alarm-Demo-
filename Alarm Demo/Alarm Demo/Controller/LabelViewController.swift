@@ -15,12 +15,14 @@ protocol PassTextFieldDelegate {
 class LabelViewController: UIViewController{
     
     var delegate: PassTextFieldDelegate?
+    //承接static cell內部label值的方法
+    var tempLabel: String = ""
     
     @IBOutlet weak var textField: UITextField! {
         didSet {
             self.textField.clearButtonMode = .always
             self.textField.textColor = .white
-            textField.text = textField.text == "" ? "Alarm" : textField.text
+            textField.text = tempLabel
         }
     }
     

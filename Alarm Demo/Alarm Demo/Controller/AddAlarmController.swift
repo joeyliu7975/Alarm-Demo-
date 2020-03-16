@@ -9,8 +9,13 @@
 import UIKit
 
 class AddAlarmController: UIViewController{
-   
-    @IBOutlet weak var alarmTimePicker: UIDatePicker!
+       
+    @IBOutlet weak var alarmTimePicker: UIDatePicker! {
+        didSet {
+            alarmTimePicker.backgroundColor = .black
+            alarmTimePicker.setValue(UIColor.white, forKey: "textColor")
+        }
+    }
     let currentDateTime = Date()
     
     var timePickerManager: TimePickerManager?
@@ -18,6 +23,8 @@ class AddAlarmController: UIViewController{
     var temporaryTimeSaver: String = ""
     var modifyExistTime: Bool = false
     var modifyExistRow: Int = -1
+    //label顯示畫面初始化質：
+    var alarmLabel: String = "Alarm" 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +32,11 @@ class AddAlarmController: UIViewController{
         self.tabBarController?.tabBar.isHidden = true
         
         // Do any additional setup after loading the view.
-        alarmTimePicker.backgroundColor = .black
-        alarmTimePicker.setValue(UIColor.white, forKey: "textColor")
         
         let formatter = timeFormatter()
          //如果是修改現有鬧鐘： TimePickerc變成原有鬧鐘時間，反之則採用當下時間
         temporaryTimeSaver = modifyExistTime ? temporaryTimeSaver : formatter.string(from: currentDateTime)
-        //判斷是否有存取現有鬧鐘
+        //判斷是否有存取現有Alarm
         switch temporaryTimeSaver {
         case "":
             alarmTimePicker.setDate(currentDateTime, animated: false)
@@ -50,7 +55,12 @@ class AddAlarmController: UIViewController{
     }
 }
 
-extension AddAlarmController {
+extension AddAlarmController: PassTextFieldDelegate{
+    func passText(alarmName: String) {
+        alarmLabel = alarmName
+    }
+    
+    
     func navigationBackItem() {
         let backItem = UIBarButtonItem()
         backItem.title = "back"
@@ -69,16 +79,22 @@ extension AddAlarmController {
     override func prepare(for segue: UIStoryboardSegue,sender: Any?) {
         let alarmController = segue.destination as? AlarmController
         
+        if let staticTableView = segue.destination as? TableViewInsideContainerViewTableViewController {
+            staticTableView.delegate = self
+            staticTableView.alarmString = alarmLabel
+        }
+        
         navigationBackItem()
         
         alarmController?.alarmTableView.isEditing = false
         alarmController?.leftBarbuttonItem.title = "Edit"
         alarmController?.isEditMode  = false
         
+        
         guard let button = sender as? UIBarButtonItem else { return }
         switch (button.tag, modifyExistTime) {
         case (2, false):
-            alarmController?.mockDataLists.append(TimePickerManager(time: temporaryTimeSaver))
+            alarmController?.mockDataLists.append(TimePickerManager(time: temporaryTimeSaver, label: alarmLabel))
             modifyExistTime = false
             self.tabBarController?.tabBar.isHidden = false
             alarmController?.bubbleSorted()
@@ -86,6 +102,7 @@ extension AddAlarmController {
         case (2, true):
             alarmController?.mockDataLists[modifyExistRow].time = temporaryTimeSaver
             alarmController?.mockDataLists[modifyExistRow].switchButtonIsOn = true
+            alarmController?.mockDataLists[modifyExistRow].label = alarmLabel
             modifyExistTime = false
             self.tabBarController?.tabBar.isHidden = false
             alarmController?.bubbleSorted()

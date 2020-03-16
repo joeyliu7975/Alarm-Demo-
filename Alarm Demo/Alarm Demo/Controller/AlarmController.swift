@@ -10,9 +10,13 @@ import UIKit
 
 class AlarmController: UIViewController{
     
-    @IBOutlet weak var alarmTableView: UITableView!
+    @IBOutlet weak var alarmTableView: UITableView! {
+        didSet {
+            alarmTableView.allowsSelection = false
+            alarmTableView.allowsSelectionDuringEditing = true
+        }
+    }
     @IBOutlet weak var leftBarbuttonItem: UIBarButtonItem!
-    
     var isEditMode: Bool = false
     var modifyExistAlarm: Bool = false
     var mockDataLists = [TimePickerManager]()
@@ -24,7 +28,6 @@ class AlarmController: UIViewController{
         
         nibRegister()
         tableViewSeparator()
-        alarmTableView.allowsSelection = false
     }
     
     func nibRegister() {
@@ -40,7 +43,6 @@ class AlarmController: UIViewController{
     @IBAction func editButton(_ sender: UIBarButtonItem){
         UIView.animate(withDuration: 0.5) {
             self.alarmTableView.isEditing.toggle()
-            self.alarmTableView.allowsSelection.toggle()
             self.isEditMode = self.alarmTableView.isEditing
             sender.title = (self.alarmTableView.isEditing == true ? "Done" : "Edit")
         }
@@ -94,20 +96,16 @@ extension AlarmController: UITableViewDataSource, UITableViewDelegate
         if isEditMode {
             modifyExistAlarm = true
             modifyExistRow = indexPath.row
-//            alarmTableView.cellForRow(at: indexPath)?.selectionStyle = .gray
             performSegue(withIdentifier: "goToAddAlarm", sender: nil)
         }
-//        else {
-//            alarmTableView.cellForRow(at: indexPath)?.selectionStyle = .none
-//        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let addController = segue.destination as? AddAlarmController
-        
         if modifyExistAlarm == true {
-            //81行決定現在時間，82行決定是否進入isEditing，
+            //107行決定現在時間，109行決定是否進入isEditing，
             addController?.temporaryTimeSaver = mockDataLists[modifyExistRow].time
+            addController?.alarmLabel = mockDataLists[modifyExistRow].label
             addController?.modifyExistTime = true
             addController?.modifyExistRow = modifyExistRow
         }
@@ -125,14 +123,9 @@ extension AlarmController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
         let arrowImage = UIImage(named: "arrow")
-        //生成時設定好 selectionStyle
-//        alarmTableView.cellForRow(at: indexPath)?.selectionStyle = isEditMode ? .gray : .none
-        
         //應該改動 mockDataLists[indexPath.row[的switchButtonIsOn]的Boolean值
         self.mockDataLists[indexPath.row].switchButtonIsOn = cell.switchSendBackValue
-        
-        self.alarmTableView.allowsSelectionDuringEditing = true
-        
+                
         cell.timeLabel.text = self.mockDataLists[indexPath.row].time
         cell.alarmLabel.text = self.mockDataLists[indexPath.row].label
         

@@ -12,6 +12,7 @@ enum SevenDay: CaseIterable{
     case Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
 }
 
+
 protocol PassDayCheckmarks{
     func passDayCheckMarks(array: [Bool])
 }
