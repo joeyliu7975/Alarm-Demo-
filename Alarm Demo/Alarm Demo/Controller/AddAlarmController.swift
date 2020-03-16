@@ -8,8 +8,8 @@
 
 import UIKit
 
-class AddAlarmController: UIViewController {
-    
+class AddAlarmController: UIViewController{
+   
     @IBOutlet weak var alarmTimePicker: UIDatePicker!
     let currentDateTime = Date()
     

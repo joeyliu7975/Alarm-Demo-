@@ -27,6 +27,7 @@
 		71C4115F241DDBFF0070EBA5 /* RepeatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C4115D241DDBFF0070EBA5 /* RepeatTableViewCell.swift */; };
 		71C41160241DDBFF0070EBA5 /* RepeatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71C4115E241DDBFF0070EBA5 /* RepeatTableViewCell.xib */; };
 		71C41162241DE1960070EBA5 /* RepeatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C41161241DE1960070EBA5 /* RepeatViewController.swift */; };
+		71C41164241EF0AC0070EBA5 /* LabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C41163241EF0AC0070EBA5 /* LabelViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		71C4115D241DDBFF0070EBA5 /* RepeatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatTableViewCell.swift; sourceTree = "<group>"; };
 		71C4115E241DDBFF0070EBA5 /* RepeatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepeatTableViewCell.xib; sourceTree = "<group>"; };
 		71C41161241DE1960070EBA5 /* RepeatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatViewController.swift; sourceTree = "<group>"; };
+		71C41163241EF0AC0070EBA5 /* LabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 				712515FD24187F0A003C5365 /* TableViewInsideContainerViewTableViewController.swift */,
 				7116C58024173529003738F9 /* AddAlarmController.swift */,
 				71C41161241DE1960070EBA5 /* RepeatViewController.swift */,
+				71C41163241EF0AC0070EBA5 /* LabelViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				712515FE24187F0A003C5365 /* TableViewInsideContainerViewTableViewController.swift in Sources */,
+				71C41164241EF0AC0070EBA5 /* LabelViewController.swift in Sources */,
 				712515F7241780D6003C5365 /* TimePickerManager.swift in Sources */,
 				714B87F22415E18D0035EDAA /* AlarmController.swift in Sources */,
 				719D75B0241609A20054C99E /* TableViewCell.swift in Sources */,

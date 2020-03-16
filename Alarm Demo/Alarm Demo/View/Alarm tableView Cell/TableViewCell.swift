@@ -41,7 +41,6 @@ class TableViewCell: UITableViewCell{
     }
     
     func switchWillReturnValue(isOn: Bool){
-        print("\(isOn)")
     }
 
     

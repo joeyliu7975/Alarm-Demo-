@@ -135,8 +135,8 @@
                                                         <constraint firstAttribute="width" constant="20" id="ydz-fd-s2L"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Never" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOZ-Fz-xPz">
-                                                    <rect key="frame" x="328.5" y="11.5" width="45.5" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alarm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOZ-Fz-xPz">
+                                                    <rect key="frame" x="329" y="11.5" width="45" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -227,13 +227,16 @@
                     </tableView>
                     <connections>
                         <outlet property="addAlarmSettingTableView" destination="27g-dI-aYz" id="hwj-73-Iev"/>
+                        <outlet property="alarmName" destination="zOZ-Fz-xPz" id="ivk-YN-9H2"/>
+                        <outlet property="alarmNameLabel" destination="AVB-8l-KmL" id="OPU-AW-BGf"/>
+                        <outlet property="repeatDayLabel" destination="nVS-sZ-49n" id="aWM-x8-7JY"/>
                         <segue destination="eFR-hZ-lC9" kind="show" identifier="goToLabel" id="THa-vY-TRu"/>
                         <segue destination="R8z-BG-oFb" kind="show" identifier="goToRepeat" id="MHf-Cl-B4P"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nHy-8g-Lvm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1386.9565217391305" y="-204.57589285714286"/>
+            <point key="canvasLocation" x="1475" y="-177"/>
         </scene>
         <!--Repeat-->
         <scene sceneID="tSi-UG-t6S">
@@ -270,23 +273,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FBg-vj-ZIr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="518.84057971014499" y="600.66964285714278"/>
+            <point key="canvasLocation" x="1474" y="461"/>
         </scene>
         <!--Label-->
         <scene sceneID="UCR-ex-6AQ">
             <objects>
-                <viewController id="eFR-hZ-lC9" sceneMemberID="viewController">
+                <viewController id="eFR-hZ-lC9" customClass="LabelViewController" customModule="Alarm_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uMA-Zv-NoG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Alarm" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ve4-9V-2Ae">
+                                <rect key="frame" x="0.0" y="215" width="414" height="34"/>
+                                <color key="backgroundColor" red="0.18039215689999999" green="0.18039215689999999" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="BFW-PX-b0y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="2aM-PA-UKk" firstAttribute="trailing" secondItem="Ve4-9V-2Ae" secondAttribute="trailing" id="RoE-Cz-WXm"/>
+                            <constraint firstItem="Ve4-9V-2Ae" firstAttribute="centerY" secondItem="uMA-Zv-NoG" secondAttribute="centerY" constant="-42" id="iiK-qo-sCZ"/>
+                            <constraint firstItem="Ve4-9V-2Ae" firstAttribute="leading" secondItem="2aM-PA-UKk" secondAttribute="leading" id="mMl-yi-B6c"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="2aM-PA-UKk"/>
                     </view>
                     <navigationItem key="navigationItem" title="Label" id="FGF-Ea-0js"/>
+                    <connections>
+                        <outlet property="textField" destination="Ve4-9V-2Ae" id="Fta-rj-b5d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DgD-z3-5sn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1514" y="601"/>
+            <point key="canvasLocation" x="2610" y="-177"/>
         </scene>
     </scenes>
     <resources>

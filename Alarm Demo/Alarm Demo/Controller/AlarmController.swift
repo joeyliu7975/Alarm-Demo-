@@ -104,6 +104,7 @@ extension AlarmController: UITableViewDataSource, UITableViewDelegate
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let addController = segue.destination as? AddAlarmController
+        
         if modifyExistAlarm == true {
             //81行決定現在時間，82行決定是否進入isEditing，
             addController?.temporaryTimeSaver = mockDataLists[modifyExistRow].time
@@ -133,6 +134,7 @@ extension AlarmController: UITableViewDataSource, UITableViewDelegate
         self.alarmTableView.allowsSelectionDuringEditing = true
         
         cell.timeLabel.text = self.mockDataLists[indexPath.row].time
+        cell.alarmLabel.text = self.mockDataLists[indexPath.row].label
         
         // 當開關被關掉時，把開關打開
         if cell.activateSwitch.isOn == false && self.mockDataLists[indexPath.row].switchButtonIsOn == false && indexPath.row == modifyExistRow{
