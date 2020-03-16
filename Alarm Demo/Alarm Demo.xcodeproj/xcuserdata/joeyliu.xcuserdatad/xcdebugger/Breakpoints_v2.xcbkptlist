@@ -7,38 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C714B1E4-5769-4123-96E9-1BC36DA8EE7B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Alarm Demo/Controller/AddAlarmController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "519470AD-661D-4100-91CF-D53A3E554603"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Alarm Demo/View/Alarm tableView Cell/TableViewCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "switchAction(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "7BF66F1B-E695-4A96-B13C-D645FB98180D"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -46,8 +14,8 @@
             filePath = "Alarm Demo/Controller/AddAlarmController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -94,121 +62,9 @@
             filePath = "Alarm Demo/Controller/LabelViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CF953FE0-731F-4AA3-8E7B-F8F16C9AE904"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Alarm Demo/Controller/TableViewInsideContainerViewTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "prepare(for:sender:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "75A60747-F1CE-495A-9E0F-868CF146FEC8"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Alarm Demo/Controller/AlarmController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
-            landmarkName = "prepare(for:sender:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "52B7BE06-AEAB-49EF-ADCF-A167216F11A8"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Alarm Demo/Controller/AddAlarmController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CBAA6385-3758-4B2D-9F1F-E5BB03452C3E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Alarm Demo/Controller/AddAlarmController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "prepare(for:sender:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0BCD5D19-CD1A-4487-8F95-DC7C48D4F1F9"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Alarm Demo/Controller/TableViewInsideContainerViewTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "53DE6085-0101-4A64-BF73-F9554930F38E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Alarm Demo/Controller/TableViewInsideContainerViewTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "prepare(for:sender:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CFF18BED-3C42-4216-884D-8FE8B33255D6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Alarm Demo/Controller/TableViewInsideContainerViewTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "passText(alarmName:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -222,133 +78,90 @@
             filePath = "Alarm Demo/Controller/TableViewInsideContainerViewTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "passDayCheckMarks(array:)"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "417F03DA-0065-47B7-98EA-3FAC3854C3A0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Alarm Demo/View/Alarm tableView Cell/TableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "switchAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DB3B0110-F8F3-46A2-9B5F-6849C18CFE69"
+            uuid = "B00648D8-9E71-44F2-A279-0A44D7724048"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Alarm Demo/Controller/TableViewInsideContainerViewTableViewController.swift"
+            filePath = "Alarm Demo/View/Alarm tableView Cell/TableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "TableViewInsideContainerViewTableViewController"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  uuid = "DB3B0110-F8F3-46A2-9B5F-6849C18CFE69 - 7fd3eee24f3756f0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Alarm_Demo.TableViewInsideContainerViewTableViewController.alarmString.getter : Swift.String"
-                  moduleName = "Alarm Demo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/joeyliu/Desktop/Alarm-Demo-/Alarm%20Demo/Alarm%20Demo/Controller/TableViewInsideContainerViewTableViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "139">
-               </Location>
-               <Location
-                  uuid = "DB3B0110-F8F3-46A2-9B5F-6849C18CFE69 - 572e58c8841e4684"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Alarm_Demo.TableViewInsideContainerViewTableViewController.alarmString.setter : Swift.String"
-                  moduleName = "Alarm Demo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/joeyliu/Desktop/Alarm-Demo-/Alarm%20Demo/Alarm%20Demo/Controller/TableViewInsideContainerViewTableViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "150">
-               </Location>
-               <Location
-                  uuid = "DB3B0110-F8F3-46A2-9B5F-6849C18CFE69 - 86b0c1d735467af5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Alarm_Demo.TableViewInsideContainerViewTableViewController.alarmString.modify : Swift.String"
-                  moduleName = "Alarm Demo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/joeyliu/Desktop/Alarm-Demo-/Alarm%20Demo/Alarm%20Demo/Controller/TableViewInsideContainerViewTableViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "18">
-               </Location>
-               <Location
-                  uuid = "DB3B0110-F8F3-46A2-9B5F-6849C18CFE69 - 803b7d6a42222f2b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Alarm_Demo.TableViewInsideContainerViewTableViewController.alarmString.modify : Swift.String with unmangled suffix &quot;.resume.0&quot;"
-                  moduleName = "Alarm Demo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/joeyliu/Desktop/Alarm-Demo-/Alarm%20Demo/Alarm%20Demo/Controller/TableViewInsideContainerViewTableViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "4">
-               </Location>
-               <Location
-                  uuid = "DB3B0110-F8F3-46A2-9B5F-6849C18CFE69 - 2b43a9647b1292b3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Alarm_Demo.TableViewInsideContainerViewTableViewController.init(style: __C.UITableViewStyle) -&gt; Alarm_Demo.TableViewInsideContainerViewTableViewController"
-                  moduleName = "Alarm Demo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/joeyliu/Desktop/Alarm-Demo-/Alarm%20Demo/Alarm%20Demo/Controller/TableViewInsideContainerViewTableViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "997">
-               </Location>
-               <Location
-                  uuid = "DB3B0110-F8F3-46A2-9B5F-6849C18CFE69 - 1792592391895f79"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Alarm_Demo.TableViewInsideContainerViewTableViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Alarm_Demo.TableViewInsideContainerViewTableViewController"
-                  moduleName = "Alarm Demo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/joeyliu/Desktop/Alarm-Demo-/Alarm%20Demo/Alarm%20Demo/Controller/TableViewInsideContainerViewTableViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "994">
-               </Location>
-               <Location
-                  uuid = "DB3B0110-F8F3-46A2-9B5F-6849C18CFE69 - f374f2275523d72f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Alarm_Demo.TableViewInsideContainerViewTableViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Alarm_Demo.TableViewInsideContainerViewTableViewController&gt;"
-                  moduleName = "Alarm Demo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/joeyliu/Desktop/Alarm-Demo-/Alarm%20Demo/Alarm%20Demo/Controller/TableViewInsideContainerViewTableViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "923">
-               </Location>
-            </Locations>
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "switchAction(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C9F00490-2293-4924-9463-5E0209414266"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Alarm Demo/Controller/AlarmController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "64F4F342-332D-45A8-A28C-64E3811FCF64"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Alarm Demo/Controller/AddAlarmController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "654C059B-6C9A-4FB6-AA56-CC755AEE2F6A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Alarm Demo/Controller/AddAlarmController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -8,12 +8,22 @@
 
 import UIKit
 
+protocol SwitchIsOnDelegate{
+    func switchIndexOn(index: Int)
+}
+
 class TableViewCell: UITableViewCell{
+    
+    var delegate: SwitchIsOnDelegate?
     
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var alarmLabel: UILabel!
     @IBOutlet weak var activateSwitch: UISwitch!
-    var switchSendBackValue: Bool = true
+
+    
+    var index: Int?
+    var completionHandler:((Int) -> Void)?
+    var alarmController: AlarmController?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,21 +37,15 @@ class TableViewCell: UITableViewCell{
     }
     
     @IBAction func switchAction(_ sender: UISwitch){
-        switchWillReturnValue(isOn: sender.isOn)
         switch sender.isOn {
         case true:
             timeLabel.textColor = UIColor.white
             alarmLabel.textColor = UIColor.white
-            switchSendBackValue = true
+            delegate?.switchIndexOn(index: sender.tag)
         default:
             timeLabel.textColor = UIColor.gray
             alarmLabel.textColor = UIColor.gray
-            switchSendBackValue = false
+            delegate?.switchIndexOn(index: sender.tag)
         }
     }
-    
-    func switchWillReturnValue(isOn: Bool){
-    }
-
-    
 }

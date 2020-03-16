@@ -28,6 +28,7 @@
 		71C41160241DDBFF0070EBA5 /* RepeatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71C4115E241DDBFF0070EBA5 /* RepeatTableViewCell.xib */; };
 		71C41162241DE1960070EBA5 /* RepeatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C41161241DE1960070EBA5 /* RepeatViewController.swift */; };
 		71C41164241EF0AC0070EBA5 /* LabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C41163241EF0AC0070EBA5 /* LabelViewController.swift */; };
+		71C4116A241F70C00070EBA5 /* TimeFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C41169241F70C00070EBA5 /* TimeFormatterManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		71C4115E241DDBFF0070EBA5 /* RepeatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepeatTableViewCell.xib; sourceTree = "<group>"; };
 		71C41161241DE1960070EBA5 /* RepeatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatViewController.swift; sourceTree = "<group>"; };
 		71C41163241EF0AC0070EBA5 /* LabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelViewController.swift; sourceTree = "<group>"; };
+		71C41169241F70C00070EBA5 /* TimeFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatterManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				712515F6241780D6003C5365 /* TimePickerManager.swift */,
+				71C41169241F70C00070EBA5 /* TimeFormatterManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				71C41162241DE1960070EBA5 /* RepeatViewController.swift in Sources */,
 				714B87F02415E18D0035EDAA /* SceneDelegate.swift in Sources */,
 				7116C58124173529003738F9 /* AddAlarmController.swift in Sources */,
+				71C4116A241F70C00070EBA5 /* TimeFormatterManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

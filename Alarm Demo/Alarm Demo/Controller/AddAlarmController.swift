@@ -30,13 +30,14 @@ class AddAlarmController: UIViewController{
         super.viewDidLoad()
         
         self.tabBarController?.tabBar.isHidden = true
-        
         // Do any additional setup after loading the view.
         
         let formatter = timeFormatter()
          //如果是修改現有鬧鐘： TimePickerc變成原有鬧鐘時間，反之則採用當下時間
         temporaryTimeSaver = modifyExistTime ? temporaryTimeSaver : formatter.string(from: currentDateTime)
+        
         //判斷是否有存取現有Alarm
+        
         switch temporaryTimeSaver {
         case "":
             alarmTimePicker.setDate(currentDateTime, animated: false)
@@ -48,33 +49,10 @@ class AddAlarmController: UIViewController{
             alarmTimePicker.setDate(result!, animated: false)
         }
     }
-    
-    @IBAction func myTimePicker(_ sender: UIDatePicker){
-        let dateValue = timeFormatter()
-        temporaryTimeSaver = dateValue.string(from: alarmTimePicker.date)
-    }
 }
 
-extension AddAlarmController: PassTextFieldDelegate{
-    func passText(alarmName: String) {
-        alarmLabel = alarmName
-    }
-    
-    
-    func navigationBackItem() {
-        let backItem = UIBarButtonItem()
-        backItem.title = "back"
-        backItem.tintColor = UIColor.orange
-        navigationItem.backBarButtonItem = backItem
-    }
-    
-    func timeFormatter() -> DateFormatter {
-        let dateValue = DateFormatter()
-        dateValue.dateFormat = "HH:mm a"
-        dateValue.timeStyle = .short
-        return dateValue
-    }
-    
+extension AddAlarmController{
+   
     // UnwindSegue && Cancel barbuttonItem tag = 1, Save barbuttonItem tag = 2
     override func prepare(for segue: UIStoryboardSegue,sender: Any?) {
         let alarmController = segue.destination as? AlarmController
@@ -90,7 +68,7 @@ extension AddAlarmController: PassTextFieldDelegate{
         alarmController?.leftBarbuttonItem.title = "Edit"
         alarmController?.isEditMode  = false
         
-        
+        // MARK: -Switch(Cancel/Save鍵, modifyExistTime)
         guard let button = sender as? UIBarButtonItem else { return }
         switch (button.tag, modifyExistTime) {
         case (2, false):
@@ -113,5 +91,33 @@ extension AddAlarmController: PassTextFieldDelegate{
             self.tabBarController?.tabBar.isHidden = false
             break
         }
+    }
+}
+
+extension AddAlarmController: PassTextFieldDelegate{
+    func passText(alarmName: String) {
+           alarmLabel = alarmName
+       }
+}
+
+// MARK: -時間轉換 && DatePicker && NavigationBackItem
+extension AddAlarmController {
+    @IBAction func myTimePicker(_ sender: UIDatePicker){
+        let dateValue = timeFormatter()
+        temporaryTimeSaver = dateValue.string(from: alarmTimePicker.date)
+    }
+    
+    func navigationBackItem() {
+        let backItem = UIBarButtonItem()
+        backItem.title = "back"
+        backItem.tintColor = UIColor.orange
+        navigationItem.backBarButtonItem = backItem
+    }
+    
+    func timeFormatter() -> DateFormatter {
+        let dateValue = DateFormatter()
+        dateValue.dateFormat = "HH:mm a"
+        dateValue.timeStyle = .short
+        return dateValue
     }
 }

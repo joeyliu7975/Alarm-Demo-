@@ -14,9 +14,15 @@ class AlarmController: UIViewController{
         didSet {
             alarmTableView.allowsSelection = false
             alarmTableView.allowsSelectionDuringEditing = true
+            alarmTableView.separatorColor = UIColor.gray
+            alarmTableView.tableFooterView = UIView()
         }
     }
     @IBOutlet weak var leftBarbuttonItem: UIBarButtonItem!
+    // Image for AccessoryView
+    let arrowImage = UIImage(named: "arrow")
+    
+    //    let timeFormatterManager = TimeFormatterManager()
     var isEditMode: Bool = false
     var modifyExistAlarm: Bool = false
     var mockDataLists = [TimePickerManager]()
@@ -25,19 +31,12 @@ class AlarmController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
         nibRegister()
-        tableViewSeparator()
     }
     
     func nibRegister() {
         let nib = UINib(nibName: "TableViewCell", bundle: nil)
         alarmTableView.register(nib, forCellReuseIdentifier: "TableViewCell")
-    }
-    
-    func tableViewSeparator() {
-        alarmTableView.separatorColor = UIColor.gray
-        alarmTableView.tableFooterView = UIView()
     }
     
     @IBAction func editButton(_ sender: UIBarButtonItem){
@@ -56,10 +55,9 @@ class AlarmController: UIViewController{
     
     func bubbleSorted(){
         for i in 0 ... mockDataLists.count - 1{
-//            guard mockDataLists.count >= 1 else { return }
-            let currentOne = timeFormatter(time: mockDataLists[i].time)
+            let currentOne = TimeFormatterManager.timeFormatter(time: mockDataLists[i].time)
             for a in 0 ... mockDataLists.count - 1{
-                let replaceOne = timeFormatter(time: mockDataLists[a].time)
+                let replaceOne = TimeFormatterManager.timeFormatter(time: mockDataLists[a].time)
                 if currentOne < replaceOne {
                     let tempData:TimePickerManager = mockDataLists[i]
                     mockDataLists[i] = mockDataLists[a]
@@ -69,47 +67,17 @@ class AlarmController: UIViewController{
         }
     }
     
-    func timeFormatter(time: String) -> Date{
-        let string = time
-        let df = DateFormatter()
-        df.dateFormat = "hh:mm a"
-        let result = df.date(from: string)
-        return result!
-    }
 }
 
-extension AlarmController: UITableViewDataSource, UITableViewDelegate
+// MARK: - TableView DataSource
+extension AlarmController: UITableViewDataSource, SwitchIsOnDelegate
 {
-    
-    // Trailing Swipe to Delete
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
-            self.mockDataLists.remove(at: indexPath.row)
-            self.alarmTableView.deleteRows(at: [indexPath], with: .automatic)
-            completionHandler(true)
-        }
-        return UISwipeActionsConfiguration(actions: [deleteAction])
-    }
-    
-    // Editing Mode trailing EditingStyle
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isEditMode {
             modifyExistAlarm = true
             modifyExistRow = indexPath.row
             performSegue(withIdentifier: "goToAddAlarm", sender: nil)
         }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let addController = segue.destination as? AddAlarmController
-        if modifyExistAlarm == true {
-            //107行決定現在時間，109行決定是否進入isEditing，
-            addController?.temporaryTimeSaver = mockDataLists[modifyExistRow].time
-            addController?.alarmLabel = mockDataLists[modifyExistRow].label
-            addController?.modifyExistTime = true
-            addController?.modifyExistRow = modifyExistRow
-        }
-        modifyExistAlarm = false
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -122,32 +90,67 @@ extension AlarmController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
-        let arrowImage = UIImage(named: "arrow")
-        //應該改動 mockDataLists[indexPath.row[的switchButtonIsOn]的Boolean值
-        self.mockDataLists[indexPath.row].switchButtonIsOn = cell.switchSendBackValue
-                
-        cell.timeLabel.text = self.mockDataLists[indexPath.row].time
-        cell.alarmLabel.text = self.mockDataLists[indexPath.row].label
         
-        // 當開關被關掉時，把開關打開
-        if cell.activateSwitch.isOn == false && self.mockDataLists[indexPath.row].switchButtonIsOn == false && indexPath.row == modifyExistRow{
-            self.mockDataLists[indexPath.row].switchButtonIsOn = true
-            cell.activateSwitch.isOn = self.mockDataLists[indexPath.row].switchButtonIsOn
-            cell.switchAction(cell.activateSwitch)
-        }
-        
-        self.mockDataLists[indexPath.row].switchButtonIsOn = cell.activateSwitch.isOn
+        cell.delegate = self
+        //開關起動時，找到這個index的位置
+        cell.activateSwitch.tag = indexPath.row
         
         cell.editingAccessoryView = UIImageView(image: arrowImage)
         
+        cell.timeLabel.text = self.mockDataLists[indexPath.row].time
+        cell.alarmLabel.text = self.mockDataLists[indexPath.row].label
+        
+        cell.activateSwitch.isOn = self.mockDataLists[indexPath.row].switchButtonIsOn
+        // 當開關被關掉時，把開關打開這個東西（提前使用)
+//        if !cell.activateSwitch.isOn && !self.mockDataLists[indexPath.row].switchButtonIsOn && indexPath.row == modifyExistRow {
+//            self.mockDataLists[indexPath.row].switchButtonIsOn = true
+//            cell.activateSwitch.isOn = self.mockDataLists[indexPath.row].switchButtonIsOn
+//            cell.switchAction(cell.activateSwitch)
+//        }
+                
         switch cell.activateSwitch.isOn {
-            case true:
-                cell.timeLabel.textColor = UIColor.white
-                cell.alarmLabel.textColor = UIColor.white
-            default:
-                cell.timeLabel.textColor = UIColor.gray
-                cell.alarmLabel.textColor = UIColor.gray
-            }
+        case true:
+            cell.timeLabel.textColor = UIColor.white
+            cell.alarmLabel.textColor = UIColor.white
+        default:
+            cell.timeLabel.textColor = UIColor.gray
+            cell.alarmLabel.textColor = UIColor.gray
+        }
+        print(mockDataLists)
         return cell
+    }
+    
+    func switchIndexOn(index: Int) {
+        print(index)
+        mockDataLists[index].switchButtonIsOn.toggle()
+    }
+}
+
+// MARK: - TableView Delegate
+extension AlarmController: UITableViewDelegate{
+    // Editing Mode trailing EditingStyle
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
+            self.mockDataLists.remove(at: indexPath.row)
+            self.alarmTableView.deleteRows(at: [indexPath], with: .automatic)
+            completionHandler(true)
+        }
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    
+}
+
+// MARK: -  Prepare for Segue
+extension AlarmController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let addController = segue.destination as? AddAlarmController
+        if modifyExistAlarm == true {
+            //107行決定現在時間，109行決定是否進入isEditing，
+            addController?.temporaryTimeSaver = mockDataLists[modifyExistRow].time
+            addController?.alarmLabel = mockDataLists[modifyExistRow].label
+            addController?.modifyExistTime = true
+            addController?.modifyExistRow = modifyExistRow
+        }
+        modifyExistAlarm = false
     }
 }

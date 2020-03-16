@@ -23,6 +23,7 @@ class LabelViewController: UIViewController{
             self.textField.clearButtonMode = .always
             self.textField.textColor = .white
             textField.text = tempLabel
+            textField.becomeFirstResponder()
         }
     }
     
