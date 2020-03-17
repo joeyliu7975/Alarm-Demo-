@@ -12,7 +12,6 @@ enum SevenDay: CaseIterable{
     case Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
 }
 
-
 protocol PassDayCheckmarks{
     func passDayCheckMarks(array: [Bool])
 }
@@ -22,6 +21,12 @@ class RepeatViewController: UIViewController {
     var delegate: PassDayCheckmarks?
     
     @IBOutlet weak var repeatTableView: UITableView!
+//        didSet {
+//            for index in 0 ... dayCheckmarks.count - 1{
+//                repeatTableView.cellForRow(at: [0, index])
+//            }
+//        }
+    
     
     var days = [String]()
     var dayCheckmarks = [Bool](repeating: false, count: 7)

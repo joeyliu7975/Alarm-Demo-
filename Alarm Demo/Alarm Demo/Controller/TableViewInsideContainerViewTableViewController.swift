@@ -10,9 +10,19 @@ import UIKit
 
 class TableViewInsideContainerViewTableViewController: UITableViewController {
     
-    @IBOutlet weak var repeatDayLabel: UILabel!
+    @IBOutlet weak var repeatDayLabel: UILabel! {
+        didSet {
+            repeatDayLabel.text = repeatDayBoolToString(input: statusTitles)
+        }
+    }
     @IBOutlet weak var alarmNameLabelConstraint: NSLayoutConstraint!
+    @IBOutlet weak var snoozeLabel: UILabel!
     @IBOutlet weak var alarmName: UILabel!
+    @IBOutlet weak var snoozeSwitch: UISwitch! {
+        didSet {
+            snoozeSwitch.isOn = true
+        }
+    }
     @IBOutlet weak var addAlarmSettingTableView: UITableView! {
         didSet {
             addAlarmSettingTableView.tableFooterView = UIView()
@@ -20,7 +30,7 @@ class TableViewInsideContainerViewTableViewController: UITableViewController {
     }
     
     var delegate: PassTextFieldDelegate?
-    var statusTitles = [Bool]()
+    var statusTitles = [Bool](repeating: false, count: 7)
     var statusString: String = ""
     var alarmString: String = "Alarm"
     
@@ -28,6 +38,15 @@ class TableViewInsideContainerViewTableViewController: UITableViewController {
         super.viewDidLoad()
         
         alarmName.text = alarmString
+    }
+    
+    @IBAction func ActivateSnoozSwich(_ sender: UISwitch) {
+        switch sender.isOn {
+        case true:
+            snoozeLabel.textColor = UIColor.white
+        default:
+            snoozeLabel.textColor = UIColor.gray
+        }
     }
     
     // MARK: - Table view data source
@@ -55,7 +74,8 @@ class TableViewInsideContainerViewTableViewController: UITableViewController {
 
 extension TableViewInsideContainerViewTableViewController: PassDayCheckmarks{
     func passDayCheckMarks(array: [Bool]) {
-        
+        statusTitles = array
+        repeatDayLabel.text = repeatDayBoolToString(input: array)
     }
 }
 
@@ -76,6 +96,7 @@ extension TableViewInsideContainerViewTableViewController {
         // Pass the selected object to the new view controller.
         if let repeatDayDestination = segue.destination as? RepeatViewController {
             repeatDayDestination.delegate = self
+            repeatDayDestination.dayCheckmarks = statusTitles
         }
         
         if let labelDestination = segue.destination as? LabelViewController {
@@ -84,60 +105,56 @@ extension TableViewInsideContainerViewTableViewController {
         }
     }
 }
-//    func passDayCheckMarks(array: [Bool]) {
-//        statusTitles = array
-//        let allDay = [
-//            true,
-//            true,
-//            true,
-//            true,
-//            true,
-//            true,
-//            true,
-//        ]
-//        let weekDay = [
-//            true,
-//            true,
-//            true,
-//            true,
-//            true,
-//            false,
-//            false,
-//        ]
-//
-//        let weekend = [
-//            false,
-//            false,
-//            false,
-//            false,
-//            false,
-//            true,
-//            true,
-//        ]
-//        let never = [
-//            false,
-//            false,
-//            false,
-//            false,
-//            false,
-//            false,
-//            false,
-//        ]
-//        switch statusTitles {
-//        case allDay:
-//            print(1)
-//        case weekDay:
-//            print(2)
-//        case weekend:
-//            print(3)
-//        case never:
-//            print(4)
-//        default:
-//            print(0)
-//        }
-//    }
-
-
+// MARK: -重複日期判斷
+extension TableViewInsideContainerViewTableViewController {
+    func repeatDayBoolToString(input: [Bool]) -> String{
+        var labels = [String]()
+        var showLabel: String = ""
+        for (index, value) in input.enumerated() {
+            if value == true {
+                switch index {
+                case 0:
+                    labels.append("Sun")
+                case 1:
+                    labels.append("Mon")
+                case 2:
+                    labels.append("Tue")
+                case 3:
+                    labels.append("Wed")
+                case 4:
+                    labels.append("Thu")
+                case 5:
+                    labels.append("Fri")
+                case 6:
+                    labels.append("Sat")
+                default:
+                    continue
+                }
+            }
+        }
+        print (labels)
+        switch labels {
+        case ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]:
+            showLabel = "Everyday"
+        case ["Sun", "Sat"]:
+            showLabel = "Weekends"
+        case ["Mon", "Tue", "Wed", "Thu", "Fri"]:
+            showLabel = "Weekdays"
+        case []:
+            showLabel = "Never"
+        default:
+            for i in 0...labels.count - 1 {
+                if i != 0 {
+                showLabel += " \(labels[i])"
+                } else {
+                    showLabel += "\(labels[i])"
+                }
+            }
+        }
+        return showLabel
+    }
+ 
+}
 
 /*
  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

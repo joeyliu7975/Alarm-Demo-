@@ -206,6 +206,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gJi-gz-4Mq">
                                                     <rect key="frame" x="350" y="6.5" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="ActivateSnoozSwich:" destination="EBl-ij-pZm" eventType="valueChanged" id="cza-mx-LDT"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -230,6 +233,8 @@
                         <outlet property="alarmName" destination="zOZ-Fz-xPz" id="ivk-YN-9H2"/>
                         <outlet property="alarmNameLabelConstraint" destination="AVB-8l-KmL" id="OPU-AW-BGf"/>
                         <outlet property="repeatDayLabel" destination="nVS-sZ-49n" id="aWM-x8-7JY"/>
+                        <outlet property="snoozeLabel" destination="pbr-OI-FJg" id="Fjb-78-qKn"/>
+                        <outlet property="snoozeSwitch" destination="gJi-gz-4Mq" id="NaZ-rr-vKD"/>
                         <segue destination="eFR-hZ-lC9" kind="show" identifier="goToLabel" id="THa-vY-TRu"/>
                         <segue destination="R8z-BG-oFb" kind="show" identifier="goToRepeat" id="MHf-Cl-B4P"/>
                     </connections>

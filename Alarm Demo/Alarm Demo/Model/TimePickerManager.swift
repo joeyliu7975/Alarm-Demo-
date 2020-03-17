@@ -12,7 +12,7 @@ struct TimePickerManager {
     var time: String
     var switchButtonIsOn: Bool = true
     var label: String = "Alarm"
-    //    var repeatDay: String
-    //    var snooze:
+    var repeatDay = [Bool]()
+    var snooze: Bool = true
 }
 
