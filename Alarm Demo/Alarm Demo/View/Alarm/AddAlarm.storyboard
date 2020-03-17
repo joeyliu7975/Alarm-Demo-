@@ -70,7 +70,7 @@
         <scene sceneID="Zmc-N4-vxl">
             <objects>
                 <tableViewController id="EBl-ij-pZm" customClass="TableViewInsideContainerViewTableViewController" customModule="Alarm_Demo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="28" id="27g-dI-aYz">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="28" id="27g-dI-aYz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="602"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>

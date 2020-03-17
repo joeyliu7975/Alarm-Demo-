@@ -20,9 +20,6 @@ class TableViewCell: UITableViewCell{
     @IBOutlet weak var alarmLabel: UILabel!
     @IBOutlet weak var activateSwitch: UISwitch!
 
-    
-    var index: Int?
-    var completionHandler:((Int) -> Void)?
     var alarmController: AlarmController?
     
     override func awakeFromNib() {

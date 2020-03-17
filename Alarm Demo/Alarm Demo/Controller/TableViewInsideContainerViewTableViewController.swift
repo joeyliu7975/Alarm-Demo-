@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SnoozeDelegate{
+    func snoozeIndexOn(index: Int)
+}
+
 class TableViewInsideContainerViewTableViewController: UITableViewController {
     
     @IBOutlet weak var repeatDayLabel: UILabel! {
@@ -31,6 +35,7 @@ class TableViewInsideContainerViewTableViewController: UITableViewController {
     
     var delegate: PassTextFieldDelegate?
     var delegateDay: PassDayCheckmarks?
+    var delegateSnooz: SnoozeDelegate?
     var repeatDayStatus = [Bool](repeating: false, count: 7)
     var repeatDayString: String = ""
     var alarmString: String = "Alarm"
@@ -38,15 +43,16 @@ class TableViewInsideContainerViewTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         alarmName.text = alarmString
-        
     }
     
     @IBAction func ActivateSnoozSwich(_ sender: UISwitch) {
         switch sender.isOn {
         case true:
             snoozeLabel.textColor = UIColor.white
+            delegateSnooz?.snoozeIndexOn(index: sender.tag)
         default:
             snoozeLabel.textColor = UIColor.gray
+            delegateSnooz?.snoozeIndexOn(index: sender.tag)
         }
     }
     

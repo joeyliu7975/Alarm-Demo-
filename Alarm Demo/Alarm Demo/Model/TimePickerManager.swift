@@ -8,11 +8,11 @@
 
 import UIKit
 
-struct TimePickerManager {
+struct TimePickerManager:Codable {
     var time: String
     var switchButtonIsOn: Bool = true
     var label: String = "Alarm"
     var repeatDay = [Bool]()
-    var snooze: Bool = true
+//    var snooze: Bool = true
 }
 

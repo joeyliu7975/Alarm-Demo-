@@ -23,14 +23,22 @@ class AlarmController: UIViewController{
     let arrowImage = UIImage(named: "arrow")
     
     //    let timeFormatterManager = TimeFormatterManager()
+    var mockDataLists = [TimePickerManager](){
+        didSet{
+            saveUserDefault()
+            alarmTableView.reloadData()
+        }
+    }
     var isEditMode: Bool = false
     var modifyExistAlarm: Bool = false
-    var mockDataLists = [TimePickerManager]()
     var modifyExistRow: Int = -1
+    
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        loadUserDefault()
         nibRegister()
     }
     
@@ -54,23 +62,22 @@ class AlarmController: UIViewController{
     }
     
     func bubbleSorted(){
-        for i in 0 ... mockDataLists.count - 1{
-            let currentOne = TimeFormatterManager.timeFormatter(time: mockDataLists[i].time)
-            for a in 0 ... mockDataLists.count - 1{
-                let replaceOne = TimeFormatterManager.timeFormatter(time: mockDataLists[a].time)
+        for external in 0 ... mockDataLists.count - 1{
+            let currentOne = TimeFormatterManager.timeFormatter(time: mockDataLists[external].time)
+            for inner in 0 ... mockDataLists.count - 1{
+                let replaceOne = TimeFormatterManager.timeFormatter(time: mockDataLists[inner].time)
                 if currentOne < replaceOne {
-                    let tempData:TimePickerManager = mockDataLists[i]
-                    mockDataLists[i] = mockDataLists[a]
-                    mockDataLists[a] = tempData
+                    let tempData:TimePickerManager = mockDataLists[external]
+                    mockDataLists[external] = mockDataLists[inner]
+                    mockDataLists[inner] = tempData
                 }
             }
         }
     }
-    
 }
 
 // MARK: - TableView DataSource
-extension AlarmController: UITableViewDataSource, SwitchIsOnDelegate
+extension AlarmController: UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isEditMode {
@@ -101,13 +108,7 @@ extension AlarmController: UITableViewDataSource, SwitchIsOnDelegate
         cell.alarmLabel.text = self.mockDataLists[indexPath.row].label
         
         cell.activateSwitch.isOn = self.mockDataLists[indexPath.row].switchButtonIsOn
-        // 當開關被關掉時，把開關打開這個東西（提前使用)
-//        if !cell.activateSwitch.isOn && !self.mockDataLists[indexPath.row].switchButtonIsOn && indexPath.row == modifyExistRow {
-//            self.mockDataLists[indexPath.row].switchButtonIsOn = true
-//            cell.activateSwitch.isOn = self.mockDataLists[indexPath.row].switchButtonIsOn
-//            cell.switchAction(cell.activateSwitch)
-//        }
-                
+        
         switch cell.activateSwitch.isOn {
         case true:
             cell.timeLabel.textColor = UIColor.white
@@ -116,13 +117,7 @@ extension AlarmController: UITableViewDataSource, SwitchIsOnDelegate
             cell.timeLabel.textColor = UIColor.gray
             cell.alarmLabel.textColor = UIColor.gray
         }
-        print(mockDataLists)
         return cell
-    }
-    
-    func switchIndexOn(index: Int) {
-        print(index)
-        mockDataLists[index].switchButtonIsOn.toggle()
     }
 }
 
@@ -137,10 +132,22 @@ extension AlarmController: UITableViewDelegate{
         }
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
-    
 }
 
-// MARK: -  Prepare for Segue
+//MARK: -UISwitch Delegate
+extension AlarmController: SwitchIsOnDelegate{
+    func switchIndexOn(index: Int) {
+        mockDataLists[index].switchButtonIsOn.toggle()
+    }
+}
+
+//MARK: -UISnoozeSwitch Delegate
+extension AlarmController: SnoozeDelegate{
+    func snoozeIndexOn(index: Int) {
+    }
+}
+
+// MARK: - Prepare for Segue
 extension AlarmController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let addController = segue.destination as? AddAlarmController
@@ -153,5 +160,28 @@ extension AlarmController {
             addController?.selectedRepeatDays = mockDataLists[modifyExistRow].repeatDay
         }
         modifyExistAlarm = false
+    }
+}
+
+extension AlarmController{
+    func saveUserDefault(){
+        switch mockDataLists.count {
+        case 0:
+            let domain = Bundle.main.bundleIdentifier!
+            UserDefaults.standard.removePersistentDomain(forName: domain)
+            UserDefaults.standard.synchronize()
+        default:
+            let encoder = JSONEncoder()
+            if let encoded = try? encoder.encode(mockDataLists) {
+                defaults.set(encoded, forKey: "data")
+            }
+        }
+    }
+    func loadUserDefault() {
+        guard let data = defaults.data(forKey: "data") else { return }
+        let decoder = JSONDecoder()
+        if let loadedData = try? decoder.decode([TimePickerManager].self, from: data) {
+            mockDataLists = loadedData
+        }
     }
 }

@@ -37,12 +37,14 @@ class RepeatViewController: UIViewController {
         makeSevenDays()
     }
     
+    
+    
     //viewWillDisappear 此層頁面從最上層被拉開時(未完全消失)，上一層畫面會收到viewWillDisappear裡面的訊息
     //viewDidDisappear 此層頁面完全消失時，上一層畫面會收到viewDidDisappear裡面的訊息
     override func viewWillDisappear(_ animated: Bool) {
         delegate?.passDayCheckMarks(array: dayCheckmarks)
     }
-    
+   
     func makeSevenDays(){
         for day in SevenDay.allCases{
             days.append("Every \(day)")
