@@ -26,7 +26,7 @@ class AlarmController: UIViewController{
     var mockDataLists = [TimePickerManager](){
         didSet{
             saveUserDefault()
-            alarmTableView.reloadData()
+//            alarmTableView.reloadData()
         }
     }
     var isEditMode: Bool = false
@@ -127,7 +127,8 @@ extension AlarmController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
             self.mockDataLists.remove(at: indexPath.row)
-            self.alarmTableView.deleteRows(at: [indexPath], with: .automatic)
+            self.alarmTableView.deleteRows(at: [indexPath], with: .fade)
+            self.alarmTableView.numberOfRows(inSection: indexPath.section)
             completionHandler(true)
         }
         return UISwipeActionsConfiguration(actions: [deleteAction])
@@ -167,9 +168,7 @@ extension AlarmController{
     func saveUserDefault(){
         switch mockDataLists.count {
         case 0:
-            let domain = Bundle.main.bundleIdentifier!
-            UserDefaults.standard.removePersistentDomain(forName: domain)
-            UserDefaults.standard.synchronize()
+           removeUserDefault()
         default:
             let encoder = JSONEncoder()
             if let encoded = try? encoder.encode(mockDataLists) {
@@ -177,11 +176,18 @@ extension AlarmController{
             }
         }
     }
+    
     func loadUserDefault() {
         guard let data = defaults.data(forKey: "data") else { return }
         let decoder = JSONDecoder()
         if let loadedData = try? decoder.decode([TimePickerManager].self, from: data) {
             mockDataLists = loadedData
         }
+    }
+    
+    func removeUserDefault() {
+        let domain = Bundle.main.bundleIdentifier!
+                  UserDefaults.standard.removePersistentDomain(forName: domain)
+                  UserDefaults.standard.synchronize()
     }
 }
