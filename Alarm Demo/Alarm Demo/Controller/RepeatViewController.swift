@@ -26,8 +26,6 @@ class RepeatViewController: UIViewController {
 //                repeatTableView.cellForRow(at: [0, index])
 //            }
 //        }
-    
-    
     var days = [String]()
     var dayCheckmarks = [Bool](repeating: false, count: 7)
     
@@ -74,7 +72,6 @@ extension RepeatViewController: UITableViewDataSource, UITableViewDelegate {
         cell.repeatDaysLabel.text = days[indexPath.row]
         //判斷剛進來時Checkmark狀態是否被勾選
         cell.accessoryType = dayCheckmarks[indexPath.row] ? .checkmark : .none
-        
         cell.tintColor = .orange
         
         return cell

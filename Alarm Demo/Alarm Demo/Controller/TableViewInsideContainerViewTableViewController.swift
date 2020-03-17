@@ -12,7 +12,7 @@ class TableViewInsideContainerViewTableViewController: UITableViewController {
     
     @IBOutlet weak var repeatDayLabel: UILabel! {
         didSet {
-            repeatDayLabel.text = repeatDayBoolToString(input: statusTitles)
+            repeatDayLabel.text = TableViewInsideContainerViewTableViewController.repeatDayBoolToString(input: repeatDayStatus)
         }
     }
     @IBOutlet weak var alarmNameLabelConstraint: NSLayoutConstraint!
@@ -30,14 +30,15 @@ class TableViewInsideContainerViewTableViewController: UITableViewController {
     }
     
     var delegate: PassTextFieldDelegate?
-    var statusTitles = [Bool](repeating: false, count: 7)
-    var statusString: String = ""
+    var delegateDay: PassDayCheckmarks?
+    var repeatDayStatus = [Bool](repeating: false, count: 7)
+    var repeatDayString: String = ""
     var alarmString: String = "Alarm"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         alarmName.text = alarmString
+        
     }
     
     @IBAction func ActivateSnoozSwich(_ sender: UISwitch) {
@@ -64,18 +65,14 @@ class TableViewInsideContainerViewTableViewController: UITableViewController {
             break
         }
     }
-    
-    
-    
     // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
 }
 
 extension TableViewInsideContainerViewTableViewController: PassDayCheckmarks{
     func passDayCheckMarks(array: [Bool]) {
-        statusTitles = array
-        repeatDayLabel.text = repeatDayBoolToString(input: array)
+        repeatDayStatus = array
+        repeatDayLabel.text = TableViewInsideContainerViewTableViewController.repeatDayBoolToString(input: array)
+        delegateDay?.passDayCheckMarks(array: repeatDayStatus)
     }
 }
 
@@ -88,7 +85,6 @@ extension TableViewInsideContainerViewTableViewController: PassTextFieldDelegate
     }
 }
 
-
 // MARK: -Prepare的步驟
 extension TableViewInsideContainerViewTableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -96,7 +92,11 @@ extension TableViewInsideContainerViewTableViewController {
         // Pass the selected object to the new view controller.
         if let repeatDayDestination = segue.destination as? RepeatViewController {
             repeatDayDestination.delegate = self
-            repeatDayDestination.dayCheckmarks = statusTitles
+            if repeatDayStatus.count != 0{
+                repeatDayDestination.dayCheckmarks = repeatDayStatus
+            }
+            print("1: \(repeatDayDestination.dayCheckmarks)")
+            print("2: \(repeatDayStatus)")
         }
         
         if let labelDestination = segue.destination as? LabelViewController {
@@ -105,9 +105,10 @@ extension TableViewInsideContainerViewTableViewController {
         }
     }
 }
+
 // MARK: -重複日期判斷
 extension TableViewInsideContainerViewTableViewController {
-    func repeatDayBoolToString(input: [Bool]) -> String{
+   static func repeatDayBoolToString(input: [Bool]) -> String{
         var labels = [String]()
         var showLabel: String = ""
         for (index, value) in input.enumerated() {
@@ -153,7 +154,6 @@ extension TableViewInsideContainerViewTableViewController {
         }
         return showLabel
     }
- 
 }
 
 /*

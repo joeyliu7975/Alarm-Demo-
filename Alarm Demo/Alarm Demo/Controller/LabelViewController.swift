@@ -18,7 +18,6 @@ class LabelViewController: UIViewController{
     //承接static cell內部label值的方法
     var tempLabel: String?
     
-    
     @IBOutlet weak var textField: UITextField! {
         didSet {
             self.textField.clearButtonMode = .always

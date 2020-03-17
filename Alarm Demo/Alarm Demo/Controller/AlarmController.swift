@@ -150,6 +150,7 @@ extension AlarmController {
             addController?.alarmLabel = mockDataLists[modifyExistRow].label
             addController?.modifyExistTime = true
             addController?.modifyExistRow = modifyExistRow
+            addController?.selectedRepeatDays = mockDataLists[modifyExistRow].repeatDay
         }
         modifyExistAlarm = false
     }

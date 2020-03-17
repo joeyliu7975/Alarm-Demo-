@@ -25,6 +25,7 @@ class AddAlarmController: UIViewController{
     var modifyExistRow: Int = -1
     //label顯示畫面初始化質：
     var alarmLabel: String = "Alarm" 
+    var selectedRepeatDays = [Bool]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +60,9 @@ extension AddAlarmController{
         
         if let staticTableView = segue.destination as? TableViewInsideContainerViewTableViewController {
             staticTableView.delegate = self
+            staticTableView.delegateDay = self
             staticTableView.alarmString = alarmLabel
+            staticTableView.repeatDayStatus = selectedRepeatDays
         }
         
         navigationBackItem()
@@ -72,7 +75,11 @@ extension AddAlarmController{
         guard let button = sender as? UIBarButtonItem else { return }
         switch (button.tag, modifyExistTime) {
         case (2, false):
-            alarmController?.mockDataLists.append(TimePickerManager(time: temporaryTimeSaver, label: alarmLabel))
+            if selectedRepeatDays.count != 0{
+            alarmController?.mockDataLists.append(TimePickerManager(time: temporaryTimeSaver, label: alarmLabel, repeatDay: selectedRepeatDays))
+            } else {
+                alarmController?.mockDataLists.append(TimePickerManager(time: temporaryTimeSaver, label: alarmLabel))
+            }
             modifyExistTime = false
             self.tabBarController?.tabBar.isHidden = false
             alarmController?.bubbleSorted()
@@ -81,6 +88,9 @@ extension AddAlarmController{
             alarmController?.mockDataLists[modifyExistRow].time = temporaryTimeSaver
             alarmController?.mockDataLists[modifyExistRow].switchButtonIsOn = true
             alarmController?.mockDataLists[modifyExistRow].label = alarmLabel
+            if selectedRepeatDays.count != 0 {
+            alarmController?.mockDataLists[modifyExistRow].repeatDay = selectedRepeatDays
+            }
             modifyExistTime = false
             self.tabBarController?.tabBar.isHidden = false
             alarmController?.bubbleSorted()
@@ -93,12 +103,19 @@ extension AddAlarmController{
         }
     }
 }
-
+//MARK: -PassedTextFieldLabel
 extension AddAlarmController: PassTextFieldDelegate{
     func passText(alarmName: String) {
            alarmLabel = alarmName
        }
 }
+//MARK: -PassedSelectedDay[Bool]
+extension AddAlarmController: PassDayCheckmarks{
+    func passDayCheckMarks(array: [Bool]) {
+        selectedRepeatDays = array
+    }
+}
+
 
 // MARK: -時間轉換 && DatePicker && NavigationBackItem
 extension AddAlarmController {
