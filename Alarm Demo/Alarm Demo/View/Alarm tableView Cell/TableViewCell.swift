@@ -19,14 +19,14 @@ class TableViewCell: UITableViewCell{
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var alarmLabel: UILabel!
     @IBOutlet weak var activateSwitch: UISwitch!
-
+    
     var alarmController: AlarmController?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         

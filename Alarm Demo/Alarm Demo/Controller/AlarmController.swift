@@ -26,7 +26,6 @@ class AlarmController: UIViewController{
     var mockDataLists = [TimePickerManager](){
         didSet{
             saveUserDefault()
-//            alarmTableView.reloadData()
         }
     }
     var isEditMode: Bool = false
@@ -97,17 +96,44 @@ extension AlarmController: UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
-        
         cell.delegate = self
+        
         //開關起動時，找到這個index的位置
         cell.activateSwitch.tag = indexPath.row
         
         cell.editingAccessoryView = UIImageView(image: arrowImage)
         
-        cell.timeLabel.text = self.mockDataLists[indexPath.row].time
-        cell.alarmLabel.text = self.mockDataLists[indexPath.row].label
+        let item = self.mockDataLists[indexPath.row]
+        let repeatDayString = TableViewInsideContainerViewTableViewController.repeatDayBoolToString(input: item.repeatDay)
+        cell.timeLabel.text = item.time
         
-        cell.activateSwitch.isOn = self.mockDataLists[indexPath.row].switchButtonIsOn
+        switch item.time.count{
+        case 7:
+            let amountText = NSMutableAttributedString.init(string: "\(item.time)")
+            amountText.setAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20),
+                                      NSAttributedString.Key.foregroundColor: UIColor.white],
+                                     range: NSMakeRange(5,2))
+            cell.timeLabel.attributedText = amountText
+        case 8:
+            let amountText = NSMutableAttributedString.init(string: "\(item.time)")
+            amountText.setAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20),
+                                      NSAttributedString.Key.foregroundColor: UIColor.white],
+                                     range: NSMakeRange(6,2))
+            cell.timeLabel.attributedText = amountText
+        default:
+            break
+        }
+        
+//        let repeatDayString =  TableViewInsideContainerViewTableViewController.repeatDayBoolToString(input: item.repeatDay)
+        
+        if repeatDayString.isNever {
+            cell.alarmLabel.text = "\(item.label), \(repeatDayString.lowercasedFirstLetter())"
+        } else {
+            cell.alarmLabel.text = item.label
+        }
+        
+        
+        cell.activateSwitch.isOn = item.switchButtonIsOn
         
         switch cell.activateSwitch.isOn {
         case true:

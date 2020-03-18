@@ -291,12 +291,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g0e-sl-pY2">
                                 <rect key="frame" x="0.0" y="173" width="414" height="34"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Alarm" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ve4-9V-2Ae">
-                                        <rect key="frame" x="10" y="0.0" width="405" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Alarm" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ve4-9V-2Ae">
+                                        <rect key="frame" x="10" y="0.0" width="395" height="34"/>
                                         <color key="backgroundColor" red="0.18039215689999999" green="0.18039215689999999" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="BFW-PX-b0y"/>
-                                            <constraint firstAttribute="width" constant="405" id="Zl1-HT-ZDu"/>
+                                            <constraint firstAttribute="height" constant="34" id="6bi-hr-g3M"/>
+                                            <constraint firstAttribute="width" constant="395" id="bGK-kD-TTj"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -304,10 +304,10 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.23539465670000001" green="0.23517063260000001" blue="0.24313867089999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstItem="Ve4-9V-2Ae" firstAttribute="top" secondItem="g0e-sl-pY2" secondAttribute="top" id="B7x-qM-2xt"/>
-                                    <constraint firstItem="Ve4-9V-2Ae" firstAttribute="centerY" secondItem="g0e-sl-pY2" secondAttribute="centerY" id="Dta-TP-SeC"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ve4-9V-2Ae" secondAttribute="bottom" id="TIz-CV-Tti"/>
-                                    <constraint firstItem="Ve4-9V-2Ae" firstAttribute="leading" secondItem="g0e-sl-pY2" secondAttribute="leading" constant="10" id="iBf-bY-WWe"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ve4-9V-2Ae" secondAttribute="trailing" constant="9" id="IrM-FV-FP6"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ve4-9V-2Ae" secondAttribute="bottom" id="PA3-e5-bEU"/>
+                                    <constraint firstItem="Ve4-9V-2Ae" firstAttribute="top" secondItem="g0e-sl-pY2" secondAttribute="top" id="SL5-Hx-GsQ"/>
+                                    <constraint firstItem="Ve4-9V-2Ae" firstAttribute="leading" secondItem="g0e-sl-pY2" secondAttribute="leading" constant="10" id="Yib-ET-Qrw"/>
                                 </constraints>
                             </view>
                         </subviews>

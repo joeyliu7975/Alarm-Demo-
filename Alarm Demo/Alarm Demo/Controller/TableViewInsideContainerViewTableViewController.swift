@@ -139,7 +139,6 @@ extension TableViewInsideContainerViewTableViewController {
                 }
             }
         }
-        print (labels)
         switch labels {
         case ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]:
             showLabel = "Everyday"
@@ -149,6 +148,20 @@ extension TableViewInsideContainerViewTableViewController {
             showLabel = "Weekdays"
         case []:
             showLabel = "Never"
+        case ["Sun"]:
+            showLabel = "Every Sunday"
+        case ["Mon"]:
+            showLabel = "Every Monday"
+        case ["Tue"]:
+            showLabel = "Every Tuesday"
+        case ["Wed"]:
+            showLabel = "Every Wednesay"
+        case ["Thu"]:
+            showLabel = "Every Thursday"
+        case ["Fri"]:
+            showLabel = "Every Friday"
+        case ["Sat"]:
+            showLabel = "Every Satday"
         default:
             for i in 0...labels.count - 1 {
                 if i != 0 {

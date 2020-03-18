@@ -11,6 +11,8 @@
 		712515F7241780D6003C5365 /* TimePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712515F6241780D6003C5365 /* TimePickerManager.swift */; };
 		712515FA24178882003C5365 /* AddAlarm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 712515F924178882003C5365 /* AddAlarm.storyboard */; };
 		712515FE24187F0A003C5365 /* TableViewInsideContainerViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712515FD24187F0A003C5365 /* TableViewInsideContainerViewTableViewController.swift */; };
+		71445DFB2421C91500A1C439 /* UILabel extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71445DFA2421C91500A1C439 /* UILabel extension.swift */; };
+		71445DFD2421ED5D00A1C439 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71445DFC2421ED5D00A1C439 /* String.swift */; };
 		714B87EE2415E18D0035EDAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714B87ED2415E18D0035EDAA /* AppDelegate.swift */; };
 		714B87F02415E18D0035EDAA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714B87EF2415E18D0035EDAA /* SceneDelegate.swift */; };
 		714B87F22415E18D0035EDAA /* AlarmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714B87F12415E18D0035EDAA /* AlarmController.swift */; };
@@ -36,6 +38,8 @@
 		712515F6241780D6003C5365 /* TimePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerManager.swift; sourceTree = "<group>"; };
 		712515F924178882003C5365 /* AddAlarm.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddAlarm.storyboard; sourceTree = "<group>"; };
 		712515FD24187F0A003C5365 /* TableViewInsideContainerViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewInsideContainerViewTableViewController.swift; sourceTree = "<group>"; };
+		71445DFA2421C91500A1C439 /* UILabel extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel extension.swift"; sourceTree = "<group>"; };
+		71445DFC2421ED5D00A1C439 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		714B87EA2415E18D0035EDAA /* Alarm Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Alarm Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		714B87ED2415E18D0035EDAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		714B87EF2415E18D0035EDAA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -183,6 +187,8 @@
 		71C4116D241FC6410070EBA5 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				71445DFA2421C91500A1C439 /* UILabel extension.swift */,
+				71445DFC2421ED5D00A1C439 /* String.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -271,10 +277,12 @@
 				712515F7241780D6003C5365 /* TimePickerManager.swift in Sources */,
 				714B87F22415E18D0035EDAA /* AlarmController.swift in Sources */,
 				719D75B0241609A20054C99E /* TableViewCell.swift in Sources */,
+				71445DFD2421ED5D00A1C439 /* String.swift in Sources */,
 				714B87EE2415E18D0035EDAA /* AppDelegate.swift in Sources */,
 				71C4115F241DDBFF0070EBA5 /* RepeatTableViewCell.swift in Sources */,
 				71C41162241DE1960070EBA5 /* RepeatViewController.swift in Sources */,
 				714B87F02415E18D0035EDAA /* SceneDelegate.swift in Sources */,
+				71445DFB2421C91500A1C439 /* UILabel extension.swift in Sources */,
 				7116C58124173529003738F9 /* AddAlarmController.swift in Sources */,
 				71C4116A241F70C00070EBA5 /* TimeFormatterManager.swift in Sources */,
 			);
