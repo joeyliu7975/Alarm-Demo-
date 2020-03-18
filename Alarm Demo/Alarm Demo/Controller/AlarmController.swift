@@ -55,17 +55,10 @@ class AlarmController: UIViewController{
     }
     
     func bubbleSorted(){
-        for external in 0 ... mockDataLists.count - 1{
-            let currentOne = TimeFormatterManager.timeFormatter(time: mockDataLists[external].time)
-            for inner in 0 ... mockDataLists.count - 1{
-                let replaceOne = TimeFormatterManager.timeFormatter(time: mockDataLists[inner].time)
-                if currentOne < replaceOne {
-                    let tempData:TimePickerManager = mockDataLists[external]
-                    mockDataLists[external] = mockDataLists[inner]
-                    mockDataLists[inner] = tempData
-                }
-            }
+        let reversedNames = mockDataLists.sorted { (s1, s2) -> Bool in
+            s1.time < s2.time
         }
+        mockDataLists = reversedNames
     }
 }
 

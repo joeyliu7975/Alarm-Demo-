@@ -16,5 +16,4 @@ class TimeFormatterManager {
         let result = df.date(from: string)
         return result!
     }
-    
 }
