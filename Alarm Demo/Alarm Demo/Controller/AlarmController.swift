@@ -54,12 +54,6 @@ class AlarmController: UIViewController{
         }
     }
     
-    @IBAction func cancel(_ unwindSegue: UIStoryboardSegue){
-    }
-    
-    @IBAction func save(_ unwindSegue: UIStoryboardSegue){
-    }
-    
     func bubbleSorted(){
         for external in 0 ... mockDataLists.count - 1{
             let currentOne = TimeFormatterManager.timeFormatter(time: mockDataLists[external].time)
@@ -105,8 +99,14 @@ extension AlarmController: UITableViewDataSource
         
         let item = self.mockDataLists[indexPath.row]
         let repeatDayString = TableViewInsideContainerViewTableViewController.repeatDayBoolToString(input: item.repeatDay)
+        
+        // 1. Label with Repeat day 2. only Label
+        let labelWithRepeats = "\(item.label), \(repeatDayString.lowercasedFirstLetter())"
+        let label = item.label
+        
         cell.timeLabel.text = item.time
         
+        // decreasing AM/PM size
         switch item.time.count{
         case 7:
             let amountText = NSMutableAttributedString.init(string: "\(item.time)")
@@ -124,25 +124,14 @@ extension AlarmController: UITableViewDataSource
             break
         }
         
-//        let repeatDayString =  TableViewInsideContainerViewTableViewController.repeatDayBoolToString(input: item.repeatDay)
-        
-        if repeatDayString.isNever {
-            cell.alarmLabel.text = "\(item.label), \(repeatDayString.lowercasedFirstLetter())"
-        } else {
-            cell.alarmLabel.text = item.label
-        }
-        
+        // This statement determined label with repeatDay or not
+        cell.alarmLabel.text = repeatDayString.isNever ? label : labelWithRepeats
         
         cell.activateSwitch.isOn = item.switchButtonIsOn
         
-        switch cell.activateSwitch.isOn {
-        case true:
-            cell.timeLabel.textColor = UIColor.white
-            cell.alarmLabel.textColor = UIColor.white
-        default:
-            cell.timeLabel.textColor = UIColor.gray
-            cell.alarmLabel.textColor = UIColor.gray
-        }
+        // timeLabel and alarmLabel TextColor become white when switch is active, else become gray
+        (cell.timeLabel.textColor, cell.alarmLabel.textColor) = cell.activateSwitch.isOn ? (UIColor.white, UIColor.white) : (UIColor.gray, UIColor.gray)
+        
         return cell
     }
 }
@@ -187,33 +176,5 @@ extension AlarmController {
             addController?.selectedRepeatDays = mockDataLists[modifyExistRow].repeatDay
         }
         modifyExistAlarm = false
-    }
-}
-
-extension AlarmController{
-    func saveUserDefault(){
-        switch mockDataLists.count {
-        case 0:
-           removeUserDefault()
-        default:
-            let encoder = JSONEncoder()
-            if let encoded = try? encoder.encode(mockDataLists) {
-                defaults.set(encoded, forKey: "data")
-            }
-        }
-    }
-    
-    func loadUserDefault() {
-        guard let data = defaults.data(forKey: "data") else { return }
-        let decoder = JSONDecoder()
-        if let loadedData = try? decoder.decode([TimePickerManager].self, from: data) {
-            mockDataLists = loadedData
-        }
-    }
-    
-    func removeUserDefault() {
-        let domain = Bundle.main.bundleIdentifier!
-                  UserDefaults.standard.removePersistentDomain(forName: domain)
-                  UserDefaults.standard.synchronize()
     }
 }

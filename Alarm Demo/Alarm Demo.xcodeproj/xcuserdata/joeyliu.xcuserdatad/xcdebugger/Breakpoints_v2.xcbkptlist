@@ -358,8 +358,8 @@
             filePath = "Alarm Demo/Controller/AlarmController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "tableView(_:trailingSwipeActionsConfigurationForRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -374,8 +374,8 @@
                   urlString = "file:///Users/joeyliu/Desktop/Alarm-Demo-/Alarm%20Demo/Alarm%20Demo/Controller/AlarmController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "145"
-                  endingLineNumber = "145"
+                  startingLineNumber = "152"
+                  endingLineNumber = "152"
                   offsetFromSymbolStart = "65">
                </Location>
                <Location
@@ -389,8 +389,8 @@
                   urlString = "file:///Users/joeyliu/Desktop/Alarm-Demo-/Alarm%20Demo/Alarm%20Demo/Controller/AlarmController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "144"
-                  endingLineNumber = "144"
+                  startingLineNumber = "151"
+                  endingLineNumber = "151"
                   offsetFromSymbolStart = "207">
                </Location>
             </Locations>

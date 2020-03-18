@@ -99,9 +99,10 @@ extension AddAlarmController{
             alarmController?.alarmTableView.reloadData()
         default:
             modifyExistTime = false
-            alarmController?.alarmTableView.allowsSelection = false
             self.tabBarController?.tabBar.isHidden = false
-            break
+            alarmController?.alarmTableView.allowsSelection = false
+            alarmController?.bubbleSorted()
+            alarmController?.alarmTableView.reloadData()
         }
     }
 }
@@ -111,6 +112,7 @@ extension AddAlarmController: PassTextFieldDelegate{
            alarmLabel = alarmName
        }
 }
+
 //MARK: -PassedSelectedDay[Bool]
 extension AddAlarmController: PassDayCheckmarks{
     func passDayCheckMarks(array: [Bool]) {
