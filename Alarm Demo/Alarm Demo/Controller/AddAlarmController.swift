@@ -60,7 +60,7 @@ extension AddAlarmController{
     override func prepare(for segue: UIStoryboardSegue,sender: Any?) {
         let alarmController = segue.destination as? AlarmController
         
-        if let staticTableView = segue.destination as? TableViewInsideContainerViewTableViewController {
+        if let staticTableView = segue.destination as? StaticTableViewCell {
             staticTableView.delegate = self
             staticTableView.delegateDay = self
             staticTableView.alarmString = alarmLabel

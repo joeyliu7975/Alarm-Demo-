@@ -98,7 +98,7 @@ extension AlarmController: UITableViewDataSource
         cell.editingAccessoryView = UIImageView(image: arrowImage)
         
         let item = self.mockDataLists[indexPath.row]
-        let repeatDayString = TableViewInsideContainerViewTableViewController.repeatDayBoolToString(input: item.repeatDay)
+        let repeatDayString = StaticTableViewCell.repeatDayBoolToString(input: item.repeatDay)
         
         // 1. Label with Repeat day 2. only Label
         let labelWithRepeats = "\(item.label), \(repeatDayString.lowercasedFirstLetter())"

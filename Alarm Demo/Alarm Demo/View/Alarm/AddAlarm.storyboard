@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jYu-fI-DEn">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,11 +11,11 @@
             <objects>
                 <viewController id="jYu-fI-DEn" customClass="AddAlarmController" customModule="Alarm_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qaf-Xt-sWd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HKi-Rq-nrJ">
-                                <rect key="frame" x="0.0" y="44" width="414" height="216"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="605499483.731637">
                                     <!--2020-03-10 02:18:03 +0000-->
                                 </date>
@@ -25,7 +24,7 @@
                                 </connections>
                             </datePicker>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sJY-Le-qBu">
-                                <rect key="frame" x="0.0" y="260" width="414" height="602"/>
+                                <rect key="frame" x="0.0" y="216" width="600" height="384"/>
                                 <connections>
                                     <segue destination="EBl-ij-pZm" kind="embed" id="x8b-fd-uza"/>
                                 </connections>
@@ -66,10 +65,10 @@
             </objects>
             <point key="canvasLocation" x="488" y="-177"/>
         </scene>
-        <!--Table View Inside Container View Table View Controller-->
+        <!--Static Table View Cell-->
         <scene sceneID="Zmc-N4-vxl">
             <objects>
-                <tableViewController id="EBl-ij-pZm" customClass="TableViewInsideContainerViewTableViewController" customModule="Alarm_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="EBl-ij-pZm" customClass="StaticTableViewCell" customModule="Alarm_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="28" id="27g-dI-aYz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="602"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -248,7 +247,7 @@
             <objects>
                 <viewController id="R8z-BG-oFb" customClass="RepeatViewController" customModule="Alarm_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eoC-sg-2Fo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="548"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="602"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AM1-HW-iS9">
@@ -285,7 +284,7 @@
             <objects>
                 <viewController id="eFR-hZ-lC9" customClass="LabelViewController" customModule="Alarm_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uMA-Zv-NoG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="548"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="602"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g0e-sl-pY2">

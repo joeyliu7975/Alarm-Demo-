@@ -12,11 +12,12 @@ protocol SnoozeDelegate{
     func snoozeIndexOn(index: Int)
 }
 
-class TableViewInsideContainerViewTableViewController: UITableViewController {
+class StaticTableViewCell: UITableViewController {
     
     @IBOutlet weak var repeatDayLabel: UILabel! {
         didSet {
-            repeatDayLabel.text = TableViewInsideContainerViewTableViewController.repeatDayBoolToString(input: repeatDayStatus)
+        
+            repeatDayLabel.text = StaticTableViewCell.repeatDayBoolToString(input: repeatDayStatus)
         }
     }
     @IBOutlet weak var alarmNameLabelConstraint: NSLayoutConstraint!
@@ -74,37 +75,33 @@ class TableViewInsideContainerViewTableViewController: UITableViewController {
     // MARK: - Navigation
 }
 
-extension TableViewInsideContainerViewTableViewController: PassDayCheckmarks{
+extension StaticTableViewCell: PassDayCheckmarks{
     func passDayCheckMarks(array: [Bool]) {
-        repeatDayStatus = array
-        repeatDayLabel.text = TableViewInsideContainerViewTableViewController.repeatDayBoolToString(input: array)
+        (repeatDayStatus, repeatDayLabel.text) = (array, StaticTableViewCell.repeatDayBoolToString(input: array))
         delegateDay?.passDayCheckMarks(array: repeatDayStatus)
     }
 }
 
-extension TableViewInsideContainerViewTableViewController: PassTextFieldDelegate{
+extension StaticTableViewCell: PassTextFieldDelegate{
     func passText(alarmName: String) {
-        self.alarmName.text = alarmName
-        alarmString = alarmName
+        (self.alarmName.text, alarmString) = (alarmName, alarmName)
         //Pass Data back to AddAlarmVC
         delegate?.passText(alarmName: alarmString)
     }
 }
 
 // MARK: -Prepare的步驟
-extension TableViewInsideContainerViewTableViewController {
+extension StaticTableViewCell {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        // To Select Repeat Days
         if let repeatDayDestination = segue.destination as? RepeatViewController {
             repeatDayDestination.delegate = self
             if repeatDayStatus.count != 0{
                 repeatDayDestination.dayCheckmarks = repeatDayStatus
             }
-            print("1: \(repeatDayDestination.dayCheckmarks)")
-            print("2: \(repeatDayStatus)")
         }
-        
+        // To Modify Label
         if let labelDestination = segue.destination as? LabelViewController {
             labelDestination.delegate = self
             labelDestination.tempLabel = alarmString
@@ -113,7 +110,8 @@ extension TableViewInsideContainerViewTableViewController {
 }
 
 // MARK: -重複日期判斷
-extension TableViewInsideContainerViewTableViewController {
+extension StaticTableViewCell {
+        
    static func repeatDayBoolToString(input: [Bool]) -> String{
         var labels = [String]()
         var showLabel: String = ""
