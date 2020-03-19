@@ -16,7 +16,7 @@ class StaticTableViewCell: UITableViewController {
     
     @IBOutlet weak var repeatDayLabel: UILabel! {
         didSet {
-        
+            
             repeatDayLabel.text = StaticTableViewCell.repeatDayBoolToString(input: repeatDayStatus)
         }
     }
@@ -121,13 +121,21 @@ extension StaticTableViewCell {
             labelDestination.delegate = self
             labelDestination.tempLabel = alarmString
         }
+        
+        if let alarmDestination = segue.destination as? AlarmController {
+            alarmDestination.mockDataLists.remove(at: deleteRow)
+            deleteRow = -1
+            alarmDestination.editButton(alarmDestination.leftBarbuttonItem);     self.tabBarController?.tabBar.isHidden = false
+            alarmDestination.alarmTableView.allowsSelection = false
+            alarmDestination.alarmTableView.reloadData()
+        }
     }
 }
 
 // MARK: -重複日期判斷
 extension StaticTableViewCell {
-        
-   static func repeatDayBoolToString(input: [Bool]) -> String{
+    
+    static func repeatDayBoolToString(input: [Bool]) -> String{
         var labels = [String]()
         var showLabel: String = ""
         for (index, value) in input.enumerated() {
@@ -178,7 +186,7 @@ extension StaticTableViewCell {
         default:
             for i in 0...labels.count - 1 {
                 if i != 0 {
-                showLabel += " \(labels[i])"
+                    showLabel += " \(labels[i])"
                 } else {
                     showLabel += "\(labels[i])"
                 }
