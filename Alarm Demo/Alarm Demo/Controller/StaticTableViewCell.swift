@@ -40,6 +40,7 @@ class StaticTableViewCell: UITableViewController {
     var repeatDayStatus = [Bool](repeating: false, count: 7)
     var repeatDayString: String = ""
     var alarmString: String = "Alarm"
+    var deleteRow: Int = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,13 +59,19 @@ class StaticTableViewCell: UITableViewController {
     }
     
     // MARK: - Table view data source
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+        view.tintColor = UIColor.black
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor.white
+    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.row {
-        case 0:
+        
+        switch (indexPath.section, indexPath.row) {
+        case (0, 0):
             addAlarmSettingTableView.deselectRow(at: indexPath, animated: true)
             performSegue(withIdentifier: "goToRepeat", sender: nil)
-        case 1:
+        case (0 ,1):
             addAlarmSettingTableView.deselectRow(at: indexPath, animated: true)
             performSegue(withIdentifier: "goToLabel", sender: nil)
         default:

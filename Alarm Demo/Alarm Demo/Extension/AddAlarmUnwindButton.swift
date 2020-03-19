@@ -13,5 +13,8 @@ extension AlarmController {
        }
        
        @IBAction func save(_ unwindSegue: UIStoryboardSegue){
-       }
+    }
+    
+    @IBAction func deleteAlarm(_ unwindSegue: UIStoryboardSegue){
+    }
 }

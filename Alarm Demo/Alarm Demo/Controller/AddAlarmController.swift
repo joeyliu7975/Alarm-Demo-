@@ -32,6 +32,7 @@ class AddAlarmController: UIViewController{
         
         self.tabBarController?.tabBar.isHidden = true
         // Do any additional setup after loading the view.
+        self.navigationItem.title = modifyExistTime ? "Edit Alarm" : "Add Alarm"
         
         let formatter = timeFormatter()
          //如果是修改現有鬧鐘： TimePickerc變成原有鬧鐘時間，反之則採用當下時間
@@ -65,6 +66,7 @@ extension AddAlarmController{
             staticTableView.delegateDay = self
             staticTableView.alarmString = alarmLabel
             staticTableView.repeatDayStatus = selectedRepeatDays
+            staticTableView.deleteRow = modifyExistRow
         }
         
         navigationBackItem()
