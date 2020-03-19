@@ -17,22 +17,7 @@ extension String{
     mutating func lowercasedFirstLetter() {
         self = self.lowercasedFirstLetter()
     }
-    
-//    mutating func isNever() -> Bool {
-//        if self == "Never" {
-//            return true
-//        } else {
-//            return false
-//        }
-    
-//    func isNever() -> Bool {
-//        if self == "Never"{
-//            return true
-//        } else {
-//            return false
-//        }
-//    }
-    
+
     var isNever: Bool {
        self == "Never"
     }

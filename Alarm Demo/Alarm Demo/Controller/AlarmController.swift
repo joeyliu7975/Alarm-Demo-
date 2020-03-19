@@ -93,8 +93,9 @@ extension AlarmController: UITableViewDataSource
         let item = self.mockDataLists[indexPath.row]
         let repeatDayString = StaticTableViewCell.repeatDayBoolToString(input: item.repeatDay)
         
-        // 1. Label with Repeat day 2. only Label
-        let labelWithRepeats = "\(item.label), \(repeatDayString.lowercasedFirstLetter())"
+        // 1. Label with Repeat day, also if Repeat Day start with "E.." and it will be lowercased
+        //2. only Label
+        let labelWithRepeats = repeatDayString.prefix(1) == "E" ? "\(item.label), \(repeatDayString.lowercasedFirstLetter())" : "\(item.label), \(repeatDayString)"
         let label = item.label
         
         cell.timeLabel.text = item.time
