@@ -261,6 +261,7 @@
                         <outlet property="addAlarmSettingTableView" destination="27g-dI-aYz" id="hwj-73-Iev"/>
                         <outlet property="alarmName" destination="zOZ-Fz-xPz" id="ivk-YN-9H2"/>
                         <outlet property="alarmNameLabelConstraint" destination="AVB-8l-KmL" id="OPU-AW-BGf"/>
+                        <outlet property="deleteAlarm" destination="ieO-Mb-UUP" id="aQg-Qn-apy"/>
                         <outlet property="repeatDayLabel" destination="nVS-sZ-49n" id="aWM-x8-7JY"/>
                         <outlet property="snoozeLabel" destination="pbr-OI-FJg" id="Fjb-78-qKn"/>
                         <outlet property="snoozeSwitch" destination="gJi-gz-4Mq" id="NaZ-rr-vKD"/>

@@ -41,10 +41,14 @@ class StaticTableViewCell: UITableViewController {
     var repeatDayString: String = ""
     var alarmString: String = "Alarm"
     var deleteRow: Int = -1
+    var editMode: Bool = false
+    
+    @IBOutlet weak var deleteAlarm: UITableViewCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         alarmName.text = alarmString
+        deleteAlarm.isHidden = !editMode
     }
     
     @IBAction func ActivateSnoozSwich(_ sender: UISwitch) {
@@ -59,6 +63,10 @@ class StaticTableViewCell: UITableViewController {
     }
     
     // MARK: - Table view data source
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        let section:Int = editMode ? 2 : 1
+        return section
+    }
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
         view.tintColor = UIColor.black
         let header = view as! UITableViewHeaderFooterView

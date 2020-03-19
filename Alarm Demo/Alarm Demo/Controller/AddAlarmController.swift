@@ -67,6 +67,7 @@ extension AddAlarmController{
             staticTableView.alarmString = alarmLabel
             staticTableView.repeatDayStatus = selectedRepeatDays
             staticTableView.deleteRow = modifyExistRow
+            staticTableView.editMode = modifyExistTime
         }
         
         navigationBackItem()
