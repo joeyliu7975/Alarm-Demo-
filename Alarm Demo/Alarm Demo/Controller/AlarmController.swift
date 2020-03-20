@@ -67,11 +67,6 @@ class AlarmController: UIViewController{
                 }
             }
         }
-//        let reversedNames = mockDataLists.sorted { (s1, s2) -> Bool in
-//            s1.time < s2.time
-//        }
-//        mockDataLists = reversedNames
-//    }
 }
 
 // MARK: - TableView DataSource

@@ -124,7 +124,7 @@ extension StaticTableViewCell {
         
         if let alarmDestination = segue.destination as? AlarmController {
             alarmDestination.mockDataLists.remove(at: deleteRow)
-            deleteRow = -1
+            //            deleteRow = -1
             alarmDestination.editButton(alarmDestination.leftBarbuttonItem);     self.tabBarController?.tabBar.isHidden = false
             alarmDestination.alarmTableView.allowsSelection = false
             alarmDestination.alarmTableView.reloadData()
@@ -132,6 +132,13 @@ extension StaticTableViewCell {
     }
 }
 
+enum repeatDays {
+    case never
+    case weekdays
+    case weekends
+    case everydays
+    case other
+}
 // MARK: -重複日期判斷
 extension StaticTableViewCell {
     
@@ -139,7 +146,7 @@ extension StaticTableViewCell {
         var labels = [String]()
         var showLabel: String = ""
         for (index, value) in input.enumerated() {
-            if value == true {
+            if value {
                 switch index {
                 case 0:
                     labels.append("Sun")
@@ -160,6 +167,7 @@ extension StaticTableViewCell {
                 }
             }
         }
+        
         switch labels {
         case ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]:
             showLabel = "Everyday"
