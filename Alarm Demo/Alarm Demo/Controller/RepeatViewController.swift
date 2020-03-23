@@ -21,15 +21,15 @@ class RepeatViewController: UIViewController {
     var delegate: PassDayCheckmarks?
     
     @IBOutlet weak var repeatTableView: UITableView!
+    
+    let id = "RepeatTableViewCell"
     var days = [String]()
     var dayCheckmarks = [Bool](repeating: false, count: 7)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let nib = UINib(nibName: "RepeatTableViewCell", bundle: nil)
-        repeatTableView.register(nib, forCellReuseIdentifier: "RepeatTableViewCell")
-        makeSevenDays()
+        setup()
     }
     
     //viewWillDisappear 此層頁面從最上層被拉開時(未完全消失)，上一層畫面會收到viewWillDisappear裡面的訊息
@@ -42,6 +42,12 @@ class RepeatViewController: UIViewController {
         for day in SevenDay.allCases{
             days.append("Every \(day)")
         }
+    }
+    
+    func setup() {
+        let nib = UINib(nibName: id, bundle: nil)
+               repeatTableView.register(nib, forCellReuseIdentifier: id)
+               makeSevenDays()
     }
 }
 
@@ -63,7 +69,7 @@ extension RepeatViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = repeatTableView.dequeueReusableCell(withIdentifier: "RepeatTableViewCell", for: indexPath) as! RepeatTableViewCell
+        let cell = repeatTableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! RepeatTableViewCell
         cell.repeatDaysLabel.text = days[indexPath.row]
         //判斷剛進來時Checkmark狀態是否被勾選
         cell.accessoryType = dayCheckmarks[indexPath.row] ? .checkmark : .none

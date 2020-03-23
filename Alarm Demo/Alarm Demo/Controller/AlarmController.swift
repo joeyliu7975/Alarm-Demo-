@@ -19,6 +19,7 @@ class AlarmController: UIViewController{
         }
     }
     @IBOutlet weak var leftBarbuttonItem: UIBarButtonItem!
+    
     // Image for AccessoryView
     let arrowImage = UIImage(named: "arrow")
     
@@ -53,20 +54,6 @@ class AlarmController: UIViewController{
             sender.title = (self.alarmTableView.isEditing == true ? "Done" : "Edit")
         }
     }
-    
-    func bubbleSorted(){
-        for external in 0 ... mockDataLists.count - 1{
-                let currentOne = TimeFormatterManager.timeFormatter(time: mockDataLists[external].time)
-                for inner in 0 ... mockDataLists.count - 1{
-                    let replaceOne = TimeFormatterManager.timeFormatter(time: mockDataLists[inner].time)
-                    if currentOne < replaceOne {
-                        let tempData:TimePickerManager = mockDataLists[external]
-                        mockDataLists[external] = mockDataLists[inner]
-                        mockDataLists[inner] = tempData
-                    }
-                }
-            }
-        }
 }
 
 // MARK: - TableView DataSource
@@ -93,7 +80,7 @@ extension AlarmController: UITableViewDataSource
         cell.delegate = self
         
         //開關起動時，找到這個index的位置
-        cell.activateSwitch.tag = indexPath.row
+        cell.indexPath = indexPath
         
         cell.editingAccessoryView = UIImageView(image: arrowImage)
         
@@ -105,6 +92,8 @@ extension AlarmController: UITableViewDataSource
         let labelWithRepeats = repeatDayString.prefix(1) == "E" ? "\(item.label), \(repeatDayString.lowercasedFirstLetter())" : "\(item.label), \(repeatDayString)"
         let label = item.label
         
+        cell.alarmLabel.text = repeatDayString.isNever ? label : labelWithRepeats
+        cell.activateSwitch.isOn = item.switchButtonIsOn
         cell.timeLabel.text = item.time
         
         // decreasing AM/PM size
@@ -125,13 +114,10 @@ extension AlarmController: UITableViewDataSource
             break
         }
         
-        // This statement determined label with repeatDay or not
-        cell.alarmLabel.text = repeatDayString.isNever ? label : labelWithRepeats
-        
-        cell.activateSwitch.isOn = item.switchButtonIsOn
-        
         // timeLabel and alarmLabel TextColor become white when switch is active, else become gray
-        (cell.timeLabel.textColor, cell.alarmLabel.textColor) = cell.activateSwitch.isOn ? (UIColor.white, UIColor.white) : (UIColor.gray, UIColor.gray)
+        let color: UIColor = item.switchButtonIsOn ? .white : .gray
+        cell.timeLabel.textColor = color
+        cell.alarmLabel.textColor = color
         
         return cell
     }
@@ -144,7 +130,6 @@ extension AlarmController: UITableViewDelegate{
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
             self.mockDataLists.remove(at: indexPath.row)
             self.alarmTableView.deleteRows(at: [indexPath], with: .fade)
-            self.alarmTableView.numberOfRows(inSection: indexPath.section)
             completionHandler(true)
         }
         return UISwipeActionsConfiguration(actions: [deleteAction])
@@ -153,29 +138,24 @@ extension AlarmController: UITableViewDelegate{
 
 //MARK: -UISwitch Delegate
 extension AlarmController: SwitchIsOnDelegate{
-    func switchIndexOn(index: Int) {
+    func switchIndexOn(index: Int) {  
         mockDataLists[index].switchButtonIsOn.toggle()
-    }
-}
-
-//MARK: -UISnoozeSwitch Delegate
-extension AlarmController: SnoozeDelegate{
-    func snoozeIndexOn(index: Int) {
     }
 }
 
 // MARK: - Prepare for Segue
 extension AlarmController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let addController = segue.destination as? AddAlarmController
+        if let addController = segue.destination as? AddAlarmController{
         if modifyExistAlarm == true {
             //107行決定現在時間，109行決定是否進入isEditing，
-            addController?.temporaryTimeSaver = mockDataLists[modifyExistRow].time
-            addController?.alarmLabel = mockDataLists[modifyExistRow].label
-            addController?.modifyExistTime = true
-            addController?.modifyExistRow = modifyExistRow
-            addController?.selectedRepeatDays = mockDataLists[modifyExistRow].repeatDay
+            addController.temporaryTimeSaver = mockDataLists[modifyExistRow].time
+            addController.alarmLabel = mockDataLists[modifyExistRow].label
+            addController.modifyExistTime = true
+            addController.modifyExistRow = modifyExistRow
+            addController.selectedRepeatDays = mockDataLists[modifyExistRow].repeatDay
         }
         modifyExistAlarm = false
+    }
     }
 }

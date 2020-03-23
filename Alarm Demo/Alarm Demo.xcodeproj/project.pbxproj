@@ -11,6 +11,7 @@
 		712515F7241780D6003C5365 /* TimePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712515F6241780D6003C5365 /* TimePickerManager.swift */; };
 		712515FA24178882003C5365 /* AddAlarm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 712515F924178882003C5365 /* AddAlarm.storyboard */; };
 		712515FE24187F0A003C5365 /* StaticTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712515FD24187F0A003C5365 /* StaticTableViewCell.swift */; };
+		7128340124285A07005F3BF8 /* Bubblesort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7128340024285A07005F3BF8 /* Bubblesort.swift */; };
 		71445DFB2421C91500A1C439 /* UILabel extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71445DFA2421C91500A1C439 /* UILabel extension.swift */; };
 		71445DFD2421ED5D00A1C439 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71445DFC2421ED5D00A1C439 /* String.swift */; };
 		714B87EE2415E18D0035EDAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714B87ED2415E18D0035EDAA /* AppDelegate.swift */; };
@@ -40,6 +41,7 @@
 		712515F6241780D6003C5365 /* TimePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerManager.swift; sourceTree = "<group>"; };
 		712515F924178882003C5365 /* AddAlarm.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddAlarm.storyboard; sourceTree = "<group>"; };
 		712515FD24187F0A003C5365 /* StaticTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticTableViewCell.swift; sourceTree = "<group>"; };
+		7128340024285A07005F3BF8 /* Bubblesort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bubblesort.swift; sourceTree = "<group>"; };
 		71445DFA2421C91500A1C439 /* UILabel extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel extension.swift"; sourceTree = "<group>"; };
 		71445DFC2421ED5D00A1C439 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		714B87EA2415E18D0035EDAA /* Alarm Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Alarm Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,6 +197,7 @@
 				71445DFC2421ED5D00A1C439 /* String.swift */,
 				71F1992A2422139B00E38EA8 /* UserDefault.swift */,
 				71F1992C2422144500E38EA8 /* AddAlarmUnwindButton.swift */,
+				7128340024285A07005F3BF8 /* Bubblesort.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				712515F7241780D6003C5365 /* TimePickerManager.swift in Sources */,
 				714B87F22415E18D0035EDAA /* AlarmController.swift in Sources */,
 				719D75B0241609A20054C99E /* TableViewCell.swift in Sources */,
+				7128340124285A07005F3BF8 /* Bubblesort.swift in Sources */,
 				71445DFD2421ED5D00A1C439 /* String.swift in Sources */,
 				714B87EE2415E18D0035EDAA /* AppDelegate.swift in Sources */,
 				71C4115F241DDBFF0070EBA5 /* RepeatTableViewCell.swift in Sources */,

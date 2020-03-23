@@ -9,7 +9,7 @@
 import UIKit
 
 class RepeatTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var repeatDaysLabel: UILabel!
     
     override func awakeFromNib() {

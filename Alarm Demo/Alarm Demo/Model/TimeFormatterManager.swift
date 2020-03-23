@@ -16,4 +16,11 @@ class TimeFormatterManager {
         let result = df.date(from: string)
         return result!
     }
+    
+    static func timeFormatter() -> DateFormatter {
+        let dateValue = DateFormatter()
+        dateValue.dateFormat = "HH:mm a"
+        dateValue.timeStyle = .short
+        return dateValue
+    }
 }

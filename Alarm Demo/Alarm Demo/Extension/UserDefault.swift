@@ -9,6 +9,7 @@
 import UIKit
 
 extension AlarmController {
+    //到array.count = 0 儲存為空陣列
     func saveUserDefault(){
            switch mockDataLists.count {
            case 0:
@@ -20,7 +21,7 @@ extension AlarmController {
                }
            }
        }
-       
+      // loadUserdefault (return -> mockDataLists)
        func loadUserDefault() {
            guard let data = defaults.data(forKey: "data") else { return }
            let decoder = JSONDecoder()

@@ -18,3 +18,17 @@ extension AlarmController {
     @IBAction func deleteAlarm(_ unwindSegue: UIStoryboardSegue){
     }
 }
+
+//MARK: -PassedTextFieldLabel
+extension AddAlarmController: PassTextFieldDelegate{
+    func passText(alarmName: String) {
+        alarmLabel = alarmName
+    }
+}
+
+//MARK: -PassedSelectedDay[Bool]
+extension AddAlarmController: PassDayCheckmarks{
+    func passDayCheckMarks(array: [Bool]) {
+        selectedRepeatDays = array
+    }
+}

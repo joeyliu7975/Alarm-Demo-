@@ -34,7 +34,11 @@ class LabelViewController: UIViewController{
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        textField.text = textField.text == "" ? "Alarm" : textField.text
-        delegate?.passText(alarmName: (textField.text)!)
+        guard let text = textField.text, !text.isEmpty else {
+            textField.text = "Alarm"
+            delegate?.passText(alarmName: "Alarm")
+            return
+        }
+        delegate?.passText(alarmName: text)
     }
 }

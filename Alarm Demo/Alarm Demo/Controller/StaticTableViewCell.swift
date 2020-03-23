@@ -16,7 +16,6 @@ class StaticTableViewCell: UITableViewController {
     
     @IBOutlet weak var repeatDayLabel: UILabel! {
         didSet {
-            
             repeatDayLabel.text = StaticTableViewCell.repeatDayBoolToString(input: repeatDayStatus)
         }
     }
@@ -140,8 +139,9 @@ enum repeatDays {
     case other
 }
 // MARK: -重複日期判斷
+
 extension StaticTableViewCell {
-    
+
     static func repeatDayBoolToString(input: [Bool]) -> String{
         var labels = [String]()
         var showLabel: String = ""
