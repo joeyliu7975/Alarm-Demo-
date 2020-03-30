@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		7116C58124173529003738F9 /* AddAlarmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7116C58024173529003738F9 /* AddAlarmController.swift */; };
 		712515F7241780D6003C5365 /* TimePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712515F6241780D6003C5365 /* TimePickerManager.swift */; };
-		712515FA24178882003C5365 /* AddAlarm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 712515F924178882003C5365 /* AddAlarm.storyboard */; };
 		712515FE24187F0A003C5365 /* StaticTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712515FD24187F0A003C5365 /* StaticTableViewCell.swift */; };
 		7128340124285A07005F3BF8 /* Bubblesort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7128340024285A07005F3BF8 /* Bubblesort.swift */; };
 		71445DFB2421C91500A1C439 /* UILabel extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71445DFA2421C91500A1C439 /* UILabel extension.swift */; };
@@ -39,7 +38,6 @@
 /* Begin PBXFileReference section */
 		7116C58024173529003738F9 /* AddAlarmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmController.swift; sourceTree = "<group>"; };
 		712515F6241780D6003C5365 /* TimePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerManager.swift; sourceTree = "<group>"; };
-		712515F924178882003C5365 /* AddAlarm.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddAlarm.storyboard; sourceTree = "<group>"; };
 		712515FD24187F0A003C5365 /* StaticTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticTableViewCell.swift; sourceTree = "<group>"; };
 		7128340024285A07005F3BF8 /* Bubblesort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bubblesort.swift; sourceTree = "<group>"; };
 		71445DFA2421C91500A1C439 /* UILabel extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel extension.swift"; sourceTree = "<group>"; };
@@ -83,7 +81,6 @@
 			isa = PBXGroup;
 			children = (
 				714B88082415E72D0035EDAA /* Alarm.storyboard */,
-				712515F924178882003C5365 /* AddAlarm.storyboard */,
 			);
 			path = Alarm;
 			sourceTree = "<group>";
@@ -263,7 +260,6 @@
 				71C41160241DDBFF0070EBA5 /* RepeatTableViewCell.xib in Resources */,
 				714B87FA2415E18F0035EDAA /* LaunchScreen.storyboard in Resources */,
 				714B88072415E71D0035EDAA /* World Clock.storyboard in Resources */,
-				712515FA24178882003C5365 /* AddAlarm.storyboard in Resources */,
 				714B87F72415E18F0035EDAA /* Assets.xcassets in Resources */,
 				719D75AC2415EAE10054C99E /* Bedtime.storyboard in Resources */,
 				719D75B1241609A20054C99E /* TableViewCell.xib in Resources */,

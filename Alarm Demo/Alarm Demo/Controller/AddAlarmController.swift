@@ -31,6 +31,17 @@ class AddAlarmController: UIViewController{
     //label顯示畫面初始化質：
     var alarmLabel: String = "Alarm" 
     var selectedRepeatDays = [Bool]()
+    //接受AlarmController的data
+    var data: TimePickerManager?
+    
+    init?(coder: NSCoder, data: TimePickerManager){
+        self.data = data
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

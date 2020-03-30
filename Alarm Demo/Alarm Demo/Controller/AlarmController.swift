@@ -47,6 +47,18 @@ class AlarmController: UIViewController{
         alarmTableView.register(nib, forCellReuseIdentifier: "TableViewCell")
     }
     
+    @IBAction func addNewAlarm(_ sender: UIBarButtonItem){
+        if let addAlarmVC = self.storyboard?.instantiateViewController(identifier: "addAlarmVC", creator: { coder in
+            AddAlarmController(coder: coder)
+        }) {
+            let navController = UINavigationController(rootViewController: addAlarmVC)
+            
+            navigationBarSetup(navController)
+            modifyExistAlarm = false
+            self.present(navController, animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func editButton(_ sender: UIBarButtonItem){
         UIView.animate(withDuration: 0.5) {
             self.alarmTableView.isEditing.toggle()
@@ -54,16 +66,36 @@ class AlarmController: UIViewController{
             sender.title = (self.alarmTableView.isEditing == true ? "Done" : "Edit")
         }
     }
+    
+    private func navigationBarSetup(_ navController: UINavigationController){
+        navController.navigationBar.barTintColor = .black
+        navController.navigationBar.tintColor = .white
+        navController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+    }
 }
 
 // MARK: - TableView DataSource
 extension AlarmController: UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let data: TimePickerManager = mockDataLists[indexPath.row]
         if isEditMode {
-            modifyExistAlarm = true
-            modifyExistRow = indexPath.row
-            performSegue(withIdentifier: "goToAddAlarm", sender: nil)
+            if let addAlarmVC = self.storyboard?.instantiateViewController(identifier: "addAlarmVC", creator: { coder in
+                AddAlarmController(coder: coder, data: data)
+            }) {
+                let navController = UINavigationController(rootViewController: addAlarmVC)
+                modifyExistAlarm = true
+                addAlarmVC.modifyExistRow = indexPath.row
+                addAlarmVC.temporaryTimeSaver = data.time
+                addAlarmVC.alarmLabel = data.label
+                addAlarmVC.modifyExistTime = true
+                addAlarmVC.modifyExistRow = modifyExistRow
+                addAlarmVC.selectedRepeatDays = data.repeatDay
+                
+                navigationBarSetup(navController)
+                modifyExistAlarm = false
+                self.present(navController, animated: true, completion: nil)
+            }
         }
     }
     
@@ -140,22 +172,5 @@ extension AlarmController: UITableViewDelegate{
 extension AlarmController: SwitchIsOnDelegate{
     func switchIndexOn(index: Int) {  
         mockDataLists[index].switchButtonIsOn.toggle()
-    }
-}
-
-// MARK: - Prepare for Segue
-extension AlarmController {
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let addController = segue.destination as? AddAlarmController{
-        if modifyExistAlarm == true {
-            //107行決定現在時間，109行決定是否進入isEditing，
-            addController.temporaryTimeSaver = mockDataLists[modifyExistRow].time
-            addController.alarmLabel = mockDataLists[modifyExistRow].label
-            addController.modifyExistTime = true
-            addController.modifyExistRow = modifyExistRow
-            addController.selectedRepeatDays = mockDataLists[modifyExistRow].repeatDay
-        }
-        modifyExistAlarm = false
-    }
     }
 }
